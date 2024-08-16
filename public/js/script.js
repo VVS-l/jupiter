@@ -27,18 +27,19 @@ function openGameInCloakedTab(url) {
                 }
                 .sidebar {
                     position: absolute;
-                    top: 50%;
+                    top: 10%;
                     right: 0;
-                    transform: translateY(-50%);
                     width: 50px;
-                    height: 200px;
+                    height: 50px;
                     background-color: rgba(0, 0, 0, 0.8);
                     border-radius: 8px 0 0 8px;
-                    transition: transform 0.3s ease;
+                    transition: width 0.3s ease;
                     overflow: hidden;
+                    cursor: pointer;
                 }
-                .sidebar:hover {
-                    transform: translateY(-50%) translateX(-150px);
+                .sidebar.expanded {
+                    width: 200px;
+                    height: 250px;
                 }
                 .sidebar img {
                     width: 40px;
@@ -49,9 +50,13 @@ function openGameInCloakedTab(url) {
                     list-style: none;
                     padding: 0;
                     margin: 0;
+                    display: none;
+                }
+                .sidebar.expanded ul {
+                    display: block;
                 }
                 .sidebar li {
-                    text-align: center;
+                    text-align: left;
                     color: white;
                     padding: 10px;
                     cursor: pointer;
@@ -63,15 +68,21 @@ function openGameInCloakedTab(url) {
         </head>
         <body>
             <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
-            <div class="sidebar">
+            <div class="sidebar" onclick="toggleSidebar()">
+                <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
                 <ul>
-                    <li><img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon"></li>
                     <li onclick="window.location.href='/';">Home</li>
                     <li onclick="window.location.href='/games';">Games</li>
                     <li onclick="window.location.href='/apps';">Apps</li>
                     <li onclick="window.location.href='/proxy';">Proxy</li>
                 </ul>
             </div>
+            <script>
+                function toggleSidebar() {
+                    const sidebar = document.querySelector('.sidebar');
+                    sidebar.classList.toggle('expanded');
+                }
+            </script>
         </body>
         </html>
     `);
@@ -80,6 +91,11 @@ function openGameInCloakedTab(url) {
     // Close the current tab
     window.close();
 }
+
+// Example of how you might trigger the tab to open
+document.getElementById('yourButtonId').onclick = () => {
+    openGameInCloakedTab('https://www.calculators.org/games/uno-with-friends/game.php');
+};
 
 
 // Function to fetch game data
