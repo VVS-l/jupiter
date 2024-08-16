@@ -1,33 +1,84 @@
-// Function to open the game in a new cloaked tab
+// Function to open the game in a new cloaked tab and close the main tab
 function openGameInCloakedTab(url) {
     // Create a new cloaked tab
     const win = window.open('about:blank', '_blank');
     win.document.open();
     win.document.write(`
         <!DOCTYPE html>
-        <html>
+        <html lang="en">
         <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Inbox</title>
             <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
             <style>
-                body {
-          Expand Down
+                html, body {
                     margin: 0;
+                    padding: 0;
+                    width: 100vw;
+                    height: 100vh;
                     overflow: hidden;
                 }
                 iframe {
                     width: 100vw;
                     height: 100vh;
                     border: none;
+                    display: block;
+                }
+                .sidebar {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                    width: 50px;
+                    height: 200px;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    border-radius: 8px 0 0 8px;
+                    transition: transform 0.3s ease;
+                    overflow: hidden;
+                }
+                .sidebar:hover {
+                    transform: translateY(-50%) translateX(-150px);
+                }
+                .sidebar img {
+                    width: 40px;
+                    margin: 5px;
+                    display: block;
+                }
+                .sidebar ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                .sidebar li {
+                    text-align: center;
+                    color: white;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+                .sidebar li:hover {
+                    background-color: rgba(255, 255, 255, 0.2);
                 }
             </style>
         </head>
         <body>
-            <iframe src="${url}" sandbox="allow-same-origin allow-scripts"></iframe>
+            <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+            <div class="sidebar">
+                <ul>
+                    <li><img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon"></li>
+                    <li onclick="window.location.href='/';">Home</li>
+                    <li onclick="window.location.href='/games';">Games</li>
+                    <li onclick="window.location.href='/apps';">Apps</li>
+                    <li onclick="window.location.href='/proxy';">Proxy</li>
+                </ul>
+            </div>
         </body>
         </html>
     `);
     win.document.close();
+
+    // Close the current tab
+    window.close();
 }
 
 
