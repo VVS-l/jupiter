@@ -11,17 +11,7 @@ function openGameInCloakedTab(url) {
             <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
             <style>
                 body {
-
-    
-          
-            
-    
-
-          
           Expand Down
-    
-    
-  
                     margin: 0;
                     overflow: hidden;
                 }
@@ -39,6 +29,8 @@ function openGameInCloakedTab(url) {
     `);
     win.document.close();
 }
+
+
 // Function to fetch game data
 async function fetchGameData(folderPath) {
     try {
