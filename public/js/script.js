@@ -63,42 +63,46 @@ function openGameInCloakedTab(url) {
                 .sidebar li:hover {
                     background-color: rgba(255, 255, 255, 0.2);
                 }
-                .exit-button {
+                .controls {
+                    display: flex;
+                    align-items: center;
                     position: absolute;
-                    top: 5%;
-                    right: 10%;
+                    top: 10%;
+                    right: 0;
+                    margin-right: 10px;
+                }
+                .exit-button {
                     background-color: red;
                     color: white;
                     border: none;
-                    padding: 10px;
+                    padding: 5px 10px;
                     cursor: pointer;
                     border-radius: 5px;
+                    margin-left: 5px;
                 }
             </style>
         </head>
         <body>
             <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
-            <div class="sidebar" onclick="toggleSidebar()">
-                <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
-                <ul>
-                    <li onclick="window.location.href='/';">Home</li>
-                    <li onclick="window.location.href='/games.html';">Games</li>
-                    <li onclick="window.location.href='/apps.html';">Apps</li>
-                    <li onclick="window.location.href='/proxy.html';">Proxy</li>
-                </ul>
+            <div class="controls">
+                <div class="sidebar" onclick="toggleSidebar()">
+                    <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
+                </div>
+                <button class="exit-button" onclick="closeMenu()">Exit</button>
             </div>
-            <button class="exit-button" onclick="closeGui()">Exit</button>
             <script>
                 function toggleSidebar() {
                     const sidebar = document.querySelector('.sidebar');
                     sidebar.classList.toggle('expanded');
                 }
 
-                function closeGui() {
-                    const confirmExit = confirm("You will need to reopen Jupiter to go back. Do you want to proceed?");
-                    if (confirmExit) {
-                        window.close();
-                    }
+                function closeMenu() {
+                    const sidebar = document.querySelector('.sidebar');
+                    sidebar.classList.remove('expanded');
+                    sidebar.style.display = 'none'; // Hide the menu icon and sidebar
+                    const exitButton = document.querySelector('.exit-button');
+                    exitButton.style.display = 'none'; // Hide the exit button
+                    alert("To reopen the menu, please refresh the page.");
                 }
             </script>
         </body>
