@@ -37,11 +37,11 @@ function openGameInCloakedTab(url) {
                     cursor: pointer;
                 }
                 .sidebar.expanded {
-                    width: 75px;
+                    width: 150px;
                     height: 200px;
                 }
                 .sidebar img {
-                    width: 40px;
+                    width: 20px;
                     margin: 5px;
                     display: block;
                 }
@@ -63,32 +63,28 @@ function openGameInCloakedTab(url) {
                 .sidebar li:hover {
                     background-color: rgba(255, 255, 255, 0.2);
                 }
-                .controls {
-                    display: flex;
-                    align-items: center;
-                    position: absolute;
-                    top: 10%;
-                    right: 0;
-                    margin-right: 10px;
-                }
-                .exit-button {
-                    background-color: red;
-                    color: white;
-                    border: none;
-                    padding: 5px 10px;
+                .close-button {
+                    text-align: center;
+                    color: red;
+                    padding: 10px;
                     cursor: pointer;
-                    border-radius: 5px;
-                    margin-left: 5px;
+                }
+                .close-button:hover {
+                    background-color: rgba(255, 0, 0, 0.2);
                 }
             </style>
         </head>
         <body>
             <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
-            <div class="controls">
-                <div class="sidebar" onclick="toggleSidebar()">
-                    <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
-                </div>
-                <button class="exit-button" onclick="closeMenu()">Exit</button>
+            <div class="sidebar" onclick="toggleSidebar()">
+                <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
+                <ul>
+                    <li onclick="window.location.href='/';">Home</li>
+                    <li onclick="window.location.href='/games.html';">Games</li>
+                    <li onclick="window.location.href='/apps.html';">Apps</li>
+                    <li onclick="window.location.href='/proxy.html';">Proxy</li>
+                    <li class="close-button" onclick="closeMenu()">Close GUI</li>
+                </ul>
             </div>
             <script>
                 function toggleSidebar() {
@@ -97,12 +93,12 @@ function openGameInCloakedTab(url) {
                 }
 
                 function closeMenu() {
-                    const sidebar = document.querySelector('.sidebar');
-                    sidebar.classList.remove('expanded');
-                    sidebar.style.display = 'none'; // Hide the menu icon and sidebar
-                    const exitButton = document.querySelector('.exit-button');
-                    exitButton.style.display = 'none'; // Hide the exit button
-                    alert("To reopen the menu, please refresh the page.");
+                    if (confirm('Closing the menu will hide it. You will need to refresh the page to reopen the menu. Do you want to proceed?')) {
+                        const sidebar = document.querySelector('.sidebar');
+                        sidebar.classList.remove('expanded');
+                        // Hide the sidebar
+                        sidebar.style.display = 'none';
+                    }
                 }
             </script>
         </body>
