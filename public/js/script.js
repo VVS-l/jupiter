@@ -7,9 +7,21 @@ function openGameInCloakedTab(url) {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Game</title>
+            <title>Inbox</title>
+            <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
             <style>
                 body {
+
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
+  
                     margin: 0;
                     overflow: hidden;
                 }
@@ -27,7 +39,6 @@ function openGameInCloakedTab(url) {
     `);
     win.document.close();
 }
-
 // Function to fetch game data
 async function fetchGameData(folderPath) {
     try {
@@ -48,47 +59,35 @@ async function fetchGameData(folderPath) {
         return null;
     }
 }
-
 // Function to load games
 async function loadGames() {
-    const gameFolders = ['/games/SmashKarts']; // Only Smash Karts for now
-
+    const gameFolders = ['/games/SmashKarts', '/games/Minecraft', '/games/UnoSingleplayer', '/games/UnoMultiplayer']; // Only Smash Karts for now
     for (const folderPath of gameFolders) {
         const gameInfo = await fetchGameData(folderPath);
-
         if (!gameInfo) {
             console.error(`No game info found for ${folderPath}`);
             continue;
         }
-
         const gameImageSrc = `${folderPath}/game.png`;
         const gameCategory = (gameInfo.Genre && gameInfo.Genre.toLowerCase().replace(/\s+/g, '-') + '-games') || 'unknown-games';
-
         const gameGrid = document.querySelector(`#${gameCategory} .game-grid`);
-
         if (!gameGrid) {
             console.error(`No game grid found for category: ${gameCategory}`);
             continue;
         }
-
         const gameThumbnail = document.createElement('div');
         gameThumbnail.className = 'game-thumbnail';
-
         const img = document.createElement('img');
         img.src = gameImageSrc;
         img.alt = gameInfo.Name || 'Game Thumbnail';
-
         const title = document.createElement('p');
         title.textContent = gameInfo.Name || 'Unknown Title';
-
         gameThumbnail.appendChild(img);
         gameThumbnail.appendChild(title);
         gameGrid.appendChild(gameThumbnail);
-
         // Make the game thumbnail clickable
         gameThumbnail.onclick = () => openGameInCloakedTab(gameInfo.URL);
     }
 }
-
 // Load the games when the page is loaded
 window.addEventListener('load', loadGames);
