@@ -1,3 +1,0 @@
-Name: Uno Singleplayer
-Genre: Strategy
-URL: /games/UnoSingleplayer/index.html
