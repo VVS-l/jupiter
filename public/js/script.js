@@ -1,4 +1,5 @@
 // Function to open the game in a new cloaked tab and close the main tab
+// Function to open the game in a new cloaked tab and close the main tab
 function openGameInCloakedTab(url) {
     // Create a new cloaked tab
     const win = window.open('about:blank', '_blank');
@@ -29,17 +30,17 @@ function openGameInCloakedTab(url) {
                     position: absolute;
                     top: 10%;
                     right: 0;
-                    width: 50px;
-                    height: 50px;
-                    background-color: rgba(0, 0, 0, 0.8);
+                    width: 2px;
+                    height: 2px;
+                    background-color: rgba(0, 0, 255, 0.8); /* Blue color */
                     border-radius: 8px 0 0 8px;
                     transition: width 0.3s ease;
                     overflow: hidden;
                     cursor: pointer;
                 }
                 .sidebar.expanded {
-                    width: 200px;
-                    height: 250px;
+                    width: 100px;
+                    height: 150px;
                 }
                 .sidebar img {
                     width: 40px;
@@ -72,9 +73,9 @@ function openGameInCloakedTab(url) {
                 <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
                 <ul>
                     <li onclick="window.location.href='/';">Home</li>
-                    <li onclick="window.location.href='/games';">Games</li>
-                    <li onclick="window.location.href='/apps';">Apps</li>
-                    <li onclick="window.location.href='/proxy';">Proxy</li>
+                    <li onclick="window.location.href='/games.html';">Games</li>
+                    <li onclick="window.location.href='/apps.html';">Apps</li>
+                    <li onclick="window.location.href='/proxy.html';">Proxy</li>
                 </ul>
             </div>
             <script>
