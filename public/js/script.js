@@ -92,12 +92,6 @@ function openGameInCloakedTab(url) {
     window.close();
 }
 
-// Example of how you might trigger the tab to open
-document.getElementById('yourButtonId').onclick = () => {
-    openGameInCloakedTab('https://www.calculators.org/games/uno-with-friends/game.php');
-};
-
-
 // Function to fetch game data
 async function fetchGameData(folderPath) {
     try {
