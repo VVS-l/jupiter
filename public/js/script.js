@@ -1,5 +1,3 @@
-// Function to open the game in a new cloaked tab and close the main tab
-// Function to open the game in a new cloaked tab and close the main tab
 function openGameInCloakedTab(url) {
     // Create a new cloaked tab
     const win = window.open('about:blank', '_blank');
@@ -30,8 +28,8 @@ function openGameInCloakedTab(url) {
                     position: absolute;
                     top: 10%;
                     right: 0;
-                    width: 2px;
-                    height: 2px;
+                    width: 30px;
+                    height: 30px;
                     background-color: rgba(0, 0, 255, 0.8); /* Blue color */
                     border-radius: 8px 0 0 8px;
                     transition: width 0.3s ease;
@@ -39,8 +37,8 @@ function openGameInCloakedTab(url) {
                     cursor: pointer;
                 }
                 .sidebar.expanded {
-                    width: 100px;
-                    height: 150px;
+                    width: 75px;
+                    height: 200px;
                 }
                 .sidebar img {
                     width: 40px;
@@ -65,6 +63,17 @@ function openGameInCloakedTab(url) {
                 .sidebar li:hover {
                     background-color: rgba(255, 255, 255, 0.2);
                 }
+                .exit-button {
+                    position: absolute;
+                    top: 5%;
+                    right: 10%;
+                    background-color: red;
+                    color: white;
+                    border: none;
+                    padding: 10px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
             </style>
         </head>
         <body>
@@ -78,10 +87,18 @@ function openGameInCloakedTab(url) {
                     <li onclick="window.location.href='/proxy.html';">Proxy</li>
                 </ul>
             </div>
+            <button class="exit-button" onclick="closeGui()">Exit</button>
             <script>
                 function toggleSidebar() {
                     const sidebar = document.querySelector('.sidebar');
                     sidebar.classList.toggle('expanded');
+                }
+
+                function closeGui() {
+                    const confirmExit = confirm("You will need to reopen Jupiter to go back. Do you want to proceed?");
+                    if (confirmExit) {
+                        window.close();
+                    }
                 }
             </script>
         </body>
@@ -92,6 +109,7 @@ function openGameInCloakedTab(url) {
     // Close the current tab
     window.close();
 }
+
 
 // Function to fetch game data
 async function fetchGameData(folderPath) {
