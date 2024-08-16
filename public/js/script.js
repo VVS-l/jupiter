@@ -37,8 +37,8 @@ function openGameInCloakedTab(url) {
                     cursor: pointer;
                 }
                 .sidebar.expanded {
-                    width: 150px;
-                    height: 200px;
+                    width: 100px;
+                    height: 220px;
                 }
                 .sidebar img {
                     width: 20px;
@@ -93,7 +93,7 @@ function openGameInCloakedTab(url) {
                 }
 
                 function closeMenu() {
-                    if (confirm('Closing the menu will hide it. You will need to refresh the page to reopen the menu. Do you want to proceed?')) {
+                    if (confirm('Closing the menu will hide it. You will need to relaunch Jupiter to show the menu again. Do you want to proceed?')) {
                         const sidebar = document.querySelector('.sidebar');
                         sidebar.classList.remove('expanded');
                         // Hide the sidebar
@@ -161,5 +161,31 @@ async function loadGames() {
         gameThumbnail.onclick = () => openGameInCloakedTab(gameInfo.URL);
     }
 }
+
+function loadGameDetails(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(text => {
+            const lines = text.split('\n');
+            const gameData = {
+                name: lines[0].split(': ')[1],
+                genre: lines[1].split(': ')[1],
+                url: lines[2].split(': ')[1],
+                ytlink: lines[3].split(': ')[1],
+                description: lines[4].split(': ')[1],
+                stars: parseInt(lines[5].split(': ')[1])
+            };
+            
+            document.getElementById('gameVideo').src = gameData.ytlink;
+            document.getElementById('gameDescription').textContent = gameData.description;
+            
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`star${i}`).classList.toggle('hidden', i > gameData.stars);
+            }
+        });
+}
+
+
 // Load the games when the page is loaded
 window.addEventListener('load', loadGames);
+window.addEventListener('load', loadGameDetails);
