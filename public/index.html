@@ -12,7 +12,9 @@
     <!-- Header with Blur Effect -->
     <header class="blur-header">
         <div class="logo">
-            <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+            <a href="index.html">
+                <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+            </a>
         </div>
         <nav>
             <ul>
@@ -25,8 +27,10 @@
                     </div>
                 </li>
                 <li class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
+                    <form id="search-form">
+                        <input type="text" id="search-input" placeholder="Search...">
+                        <button type="submit"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
+                    </form>
                 </li>
             </ul>
         </nav>
@@ -80,6 +84,7 @@
     </footer>
 
     <!-- JavaScript for Dropdown Toggle -->
+    <script src="js/search.js"></script>
     <script>
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
             event.preventDefault();

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Jupiter</title>
+    <link rel="stylesheet" href="css/homestyle.css">
+</head>
+<body>
+    <!-- Header with Blur Effect -->
+    <header class="blur-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" id="dropdown-toggle">
+                        <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon">
+                    </a>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <a href="games.html">Games</a>
+                        <a href="apps.html">Apps</a>
+                        <a href="proxy.html">Proxy</a>
+                    </div>
+                </li>
+                <li class="search-bar">
+                    <form action="search.html" method="GET" class="search-bar">
+                        <input type="text" name="query" placeholder="Search..." required>
+                        <button type="submit">
+                            <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search">
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content for Search Results -->
+    <main>
+        <section class="main-section">
+            <h1>Search Results for "<span id="search-query"></span>"</h1>
+            <div id="results"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jupiter. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to handle search and display results -->
+    <script>
+        // Get the query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('query');
+
+        // Display the search query
+        document.getElementById('search-query').textContent = query;
+
+        // Example: Display dummy search results
+        const resultsContainer = document.getElementById('results');
+        const dummyResults = [
+            { title: "Game 1", link: "game1.html", description: "Description for Game 1" },
+            { title: "App 1", link: "app1.html", description: "Description for App 1" },
+            { title: "Proxy Service", link: "proxy.html", description: "Access the proxy service" },
+        ];
+
+        dummyResults.forEach(result => {
+            if (result.title.toLowerCase().includes(query.toLowerCase())) {
+                const resultElement = document.createElement('div');
+                resultElement.classList.add('result-item');
+                resultElement.innerHTML = `
+                    <h2><a href="${result.link}">${result.title}</a></h2>
+                    <p>${result.description}</p>
+                `;
+                resultsContainer.appendChild(resultElement);
+            }
+        });
+    </script>
+</body>
+</html>
