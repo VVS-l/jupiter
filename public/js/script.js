@@ -17,12 +17,49 @@ function openGameInCloakedTab(url) {
                     width: 100vw;
                     height: 100vh;
                     overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #f0f0f0; /* Optional: background color */
                 }
                 iframe {
-                    width: 100vw;
-                    height: 100vh;
+                    width: 100%;
+                    height: 100%;
                     border: none;
                     display: block;
+                }
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                }
+                .button-frame {
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: 20px;
+                    border-radius: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: auto; /* Adjust width to fit button */
+                }
+                .button {
+                    background-color: #007bff; /* Blue background */
+                    color: white;
+                    border: none;
+                    padding: 15px 30px;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                }
+                .button:hover {
+                    background-color: #0056b3; /* Darker blue on hover */
                 }
                 .sidebar {
                     position: absolute;
@@ -75,16 +112,21 @@ function openGameInCloakedTab(url) {
             </style>
         </head>
         <body>
-            <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
-            <div class="sidebar" onclick="toggleSidebar()">
-                <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
-                <ul>
-                    <li onclick="window.location.href='/';">Home</li>
-                    <li onclick="window.location.href='/games.html';">Games</li>
-                    <li onclick="window.location.href='/apps.html';">Apps</li>
-                    <li onclick="window.location.href='/proxy.html';">Proxy</li>
-                    <li class="close-button" onclick="closeMenu()">Close GUI</li>
-                </ul>
+            <div class="container">
+                <div class="button-frame">
+                    <button class="button" onclick="window.location.href='${url}';">Open Proxy</button>
+                </div>
+                <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+                <div class="sidebar" onclick="toggleSidebar()">
+                    <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
+                    <ul>
+                        <li onclick="window.location.href='/';">Home</li>
+                        <li onclick="window.location.href='/games.html';">Games</li>
+                        <li onclick="window.location.href='/apps.html';">Apps</li>
+                        <li onclick="window.location.href='/proxy.html';">Proxy</li>
+                        <li class="close-button" onclick="closeMenu()">Close GUI</li>
+                    </ul>
+                </div>
             </div>
             <script>
                 function toggleSidebar() {
