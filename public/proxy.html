@@ -55,7 +55,7 @@
 
             <div class="button-container">
                 <div class="blurred-frame button-frame">
-                    <button class="button" onclick="openCloakedTab('https://example.com')">Open Proxy</button>
+                    <button class="button" onclick="openGameInCloakedTab('https://javasquript.photographs.gs')">Open Proxy</button>
                 </div>
             </div>
         </section>
@@ -66,7 +66,7 @@
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Toggle and Cloaked Tab -->
+    <!-- JavaScript for Dropdown Toggle -->
     <script>
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
             event.preventDefault();
@@ -74,43 +74,40 @@
             dropdownContent.classList.toggle('show');
         });
 
-        function openCloakedTab(url) {
-            // Open a new blank tab
+        function openGameInCloakedTab(url) {
+            // Create a new cloaked tab
             const win = window.open('about:blank', '_blank');
-            if (win) {
-                // Write the cloaked content to the new tab
-                win.document.write(`
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>Inbox</title>
-                        <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
-                        <style>
-                            html, body {
-                                margin: 0;
-                                padding: 0;
-                                width: 100vw;
-                                height: 100vh;
-                                overflow: hidden;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <script>
-                            // Redirect to the proxy URL after a short delay
-                            setTimeout(function() {
-                                window.location.href = '${url}';
-                            }, 1000);
-                        <\/script>
-                    </body>
-                    </html>
-                `);
-                win.document.close();
-            } else {
-                alert('Pop-up blocked! Please allow pop-ups for this site to use the proxy.');
-            }
+            win.document.open();
+            win.document.write(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Inbox</title>
+                    <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
+                    <style>
+                        html, body {
+                            margin: 0;
+                            padding: 0;
+                            width: 100vw;
+                            height: 100vh;
+                            overflow: hidden;
+                        }
+                        iframe {
+                            width: 100vw;
+                            height: 100vh;
+                            border: none;
+                            display: block;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+                </body>
+                </html>
+            `);
+            win.document.close();
         }
     </script>
 </body>
