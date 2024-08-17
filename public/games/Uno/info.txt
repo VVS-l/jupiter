@@ -1,5 +1,3 @@
 Name: Uno
 Genre: Strategy
 URL: /games/Uno/index.html
-YTLINK: https://www.youtube.com/embed/5kJj18VDLBg
-Description: UNO is an online multiplayer game based on the classic card game. In the online version, players compete against friends or other players globally. The objective remains the same: to match cards by color or number and be the first to empty their hand. Special action cards introduce twists and strategic elements, like forcing opponents to draw cards or changing the game’s direction. The game features various modes and customization options, offering a fun and interactive experience with friends or random players.

@@ -1,6 +1,3 @@
 Name: Smash Karts
 Genre: Popular
 URL: /games/SmashKarts/index.html
-YTLINK: https://www.youtube.com/embed/BK__rAEEJ-w
-Description: 
-Smash Karts is a multiplayer online battle kart racing game. Players compete in fast-paced races where they not only race to be first but also use various weapons and power-ups to sabotage their opponents. The game features colorful, cartoonish graphics and a variety of karts and tracks. Players can upgrade their karts, collect power-ups, and engage in chaotic, action-packed races. The goal is to be the best racer and survive the mayhem while trying to finish in the top positions.

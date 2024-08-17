@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy - Jupiter</title>
+    <link rel="stylesheet" href="css/proxystyle.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with Blur Effect -->
+    <header class="blur-header">
+        <div class="logo">
+            <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" id="dropdown-toggle">
+                        <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon">
+                    </a>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <a href="games.html">Games</a>
+                        <a href="apps.html">Apps</a>
+                        <a href="proxy.html">Proxy</a>
+                    </div>
+                </li>
+                <li class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button>
+                        <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search">
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content with Rounded Frames -->
+    <main>
+        <section class="main-section">
+            <div class="blurred-frame frame-top">
+                <div class="welcome-message">🔒 Proxy Access 🔒</div>
+                <div class="proxy-description">
+                    <h3>About the Proxy</h3>
+                    <hr class="proxy-line">
+                    <p>The proxy service allows you to access websites and content securely and privately. It acts as an intermediary between your device and the internet, hiding your IP address and encrypting your connection.</p>
+                    <p>To use the proxy:</p>
+                    <ol>
+                        <li>Click the "Open Proxy" button below.</li>
+                        <li>You'll be redirected to the proxy service where you can browse securely.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <div class="blurred-frame button-frame">
+                    <a href="https://javasquript.photographs.gs" class="button" target="_blank">Open Proxy</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jupiter. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dropdown Toggle -->
+    <script>
+        document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
+            event.preventDefault();
+            const dropdownContent = document.getElementById('dropdown-content');
+            dropdownContent.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
