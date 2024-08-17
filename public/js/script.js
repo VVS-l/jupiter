@@ -1,120 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxy - Jupiter</title>
-    <link rel="stylesheet" href="css/proxystyle.css">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header with Blur Effect -->
-    <header class="blur-header">
-        <div class="logo">
-            <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
-        </div>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="#" id="dropdown-toggle">
-                        <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon">
-                    </a>
-                    <div class="dropdown-content" id="dropdown-content">
-                        <a href="games.html">Games</a>
-                        <a href="apps.html">Apps</a>
-                        <a href="proxy.html">Proxy</a>
-                    </div>
-                </li>
-                <li class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button>
-                        <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search">
-                    </button>
-                </li>
-            </ul>
-        </nav>
-    </header>
+function openGameInCloakedTab(url) {
+    // Create a new cloaked tab
+    const win = window.open('about:blank', '_blank');
 
-    <!-- Main Content with Rounded Frames -->
-    <main>
-        <section class="main-section">
-            <div class="blurred-frame frame-top">
-                <div class="welcome-message">🔒 Proxy Access 🔒</div>
-                <div class="proxy-description">
-                    <h3>About the Proxy</h3>
-                    <hr class="proxy-line">
-                    <p>The proxy service allows you to access websites and content securely and privately. It acts as an intermediary between your device and the internet, hiding your IP address and encrypting your connection.</p>
-                    <p>To use the proxy:</p>
-                    <ol>
-                        <li>Click the "Open Proxy" button below.</li>
-                        <li>You'll be redirected to the proxy service where you can browse securely.</li>
-                    </ol>
+    // Ensure win is available before accessing its document
+    if (win) {
+        win.document.open();
+        win.document.write(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Inbox</title>
+                <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
+                <style>
+                    html, body {
+                        margin: 0;
+                        padding: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        overflow: hidden;
+                    }
+                    iframe {
+                        width: 100vw;
+                        height: 100vh;
+                        border: none;
+                        display: block;
+                    }
+                    .sidebar {
+                        position: absolute;
+                        top: 10%;
+                        right: 0;
+                        width: 30px;
+                        height: 30px;
+                        background-color: rgba(0, 0, 255, 0.8); /* Blue color */
+                        border-radius: 8px 0 0 8px;
+                        transition: width 0.3s ease;
+                        overflow: hidden;
+                        cursor: pointer;
+                    }
+                    .sidebar.expanded {
+                        width: 100px;
+                        height: 220px;
+                    }
+                    .sidebar img {
+                        width: 20px;
+                        margin: 5px;
+                        display: block;
+                    }
+                    .sidebar ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                        display: none;
+                    }
+                    .sidebar.expanded ul {
+                        display: block;
+                    }
+                    .sidebar li {
+                        text-align: left;
+                        color: white;
+                        padding: 10px;
+                        cursor: pointer;
+                    }
+                    .sidebar li:hover {
+                        background-color: rgba(255, 255, 255, 0.2);
+                    }
+                    .close-button {
+                        text-align: center;
+                        color: red;
+                        padding: 10px;
+                        cursor: pointer;
+                    }
+                    .close-button:hover {
+                        background-color: rgba(255, 0, 0, 0.2);
+                    }
+                </style>
+            </head>
+            <body>
+                <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+                <div class="sidebar" onclick="toggleSidebar()">
+                    <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
+                    <ul>
+                        <li onclick="navigateIframe('/')">Home</li>
+                        <li onclick="navigateIframe('/games.html')">Games</li>
+                        <li onclick="navigateIframe('/apps.html')">Apps</li>
+                        <li onclick="navigateIframe('/proxy.html')">Proxy</li>
+                        <li class="close-button" onclick="closeMenu()">Close GUI</li>
+                    </ul>
                 </div>
-            </div>
+                <script>
+                    function toggleSidebar() {
+                        const sidebar = document.querySelector('.sidebar');
+                        sidebar.classList.toggle('expanded');
+                    }
 
-            <div class="button-container">
-                <div class="blurred-frame button-frame">
-                    <button class="button" onclick="openGameInCloakedTab('https://javasquript.photographs.gs')">Open Proxy</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Jupiter. All rights reserved.</p>
-    </footer>
-
-    <!-- JavaScript for Dropdown Toggle -->
-    <script>
-        document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
-            event.preventDefault();
-            const dropdownContent = document.getElementById('dropdown-content');
-            dropdownContent.classList.toggle('show');
-        });
-
-        function openGameInCloakedTab(url) {
-            // Create a new cloaked tab
-            const win = window.open('about:blank', '_blank');
-            win.document.open();
-            win.document.write(`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Inbox</title>
-                    <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
-                    <style>
-                        html, body {
-                            margin: 0;
-                            padding: 0;
-                            width: 100vw;
-                            height: 100vh;
-                            overflow: hidden;
+                    function closeMenu() {
+                        if (confirm('Closing the menu will hide it. You will need to relaunch Jupiter to show the menu again. Do you want to proceed?')) {
+                            const sidebar = document.querySelector('.sidebar');
+                            sidebar.classList.remove('expanded');
+                            // Hide the sidebar
+                            sidebar.style.display = 'none';
                         }
-                        iframe {
-                            width: 100vw;
-                            height: 100vh;
-                            border: none;
-                            display: block;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <iframe src="${url}" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" allowfullscreen></iframe>
-                </body>
-                </html>
-            `);
-            win.document.close();
+                    }
 
-            // Close the current tab
-            window.close();
-        }
-    </script>
-</body>
-</html>
+                    function navigateIframe(newUrl) {
+                        document.getElementById('cloakedFrame').src = newUrl;
+                    }
+                </script>
+            </body>
+            </html>
+        `);
+        win.document.close();
+    } else {
+        console.error("Failed to open cloaked tab.");
+    }
+
+    // Close the current tab
+    window.close();
+}
 
 // Function to fetch game data
 async function fetchGameData(folderPath) {
