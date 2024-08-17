@@ -66,14 +66,16 @@
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Toggle -->
+    <!-- JavaScript for Dropdown Toggle and Cloaked Tab -->
     <script>
+        // Dropdown toggle functionality
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
             event.preventDefault();
             const dropdownContent = document.getElementById('dropdown-content');
             dropdownContent.classList.toggle('show');
         });
 
+        // Cloaked tab function
         function openGameInCloakedTab(url) {
             // Create a new cloaked tab
             const win = window.open('about:blank', '_blank');
@@ -181,9 +183,6 @@
                 </html>
             `);
             win.document.close();
-
-            // Close the current tab
-            window.close();
         }
     </script>
 </body>
