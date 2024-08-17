@@ -75,14 +75,14 @@ function openGameInCloakedTab(url) {
             </style>
         </head>
         <body>
-            <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+            <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
             <div class="sidebar" onclick="toggleSidebar()">
                 <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
                 <ul>
-                    <li onclick="window.location.href='/';">Home</li>
-                    <li onclick="window.location.href='/games.html';">Games</li>
-                    <li onclick="window.location.href='/apps.html';">Apps</li>
-                    <li onclick="window.location.href='/proxy.html';">Proxy</li>
+                    <li onclick="navigateIframe('/')">Home</li>
+                    <li onclick="navigateIframe('/games.html')">Games</li>
+                    <li onclick="navigateIframe('/apps.html')">Apps</li>
+                    <li onclick="navigateIframe('/proxy.html')">Proxy</li>
                     <li class="close-button" onclick="closeMenu()">Close GUI</li>
                 </ul>
             </div>
@@ -100,6 +100,10 @@ function openGameInCloakedTab(url) {
                         sidebar.style.display = 'none';
                     }
                 }
+
+                function navigateIframe(newUrl) {
+                    document.getElementById('cloakedFrame').src = newUrl;
+                }
             </script>
         </body>
         </html>
@@ -109,6 +113,7 @@ function openGameInCloakedTab(url) {
     // Close the current tab
     window.close();
 }
+
 
 
 // Function to fetch game data
