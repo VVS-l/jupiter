@@ -256,17 +256,34 @@ main {
     width: 80%;
 }
 
-/* Button Container */
+.button {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    padding: 15px 30px; /* Padding inside the button */
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Remove underline for button */
+    display: inline-block; /* Ensure button isn't stretched */
+}
+
 .button-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    width: 100%;
+    align-items: center;
+    height: 100%;
 }
 
 .button-frame {
-    flex: 1;
-    max-width: 300px;
+    background: rgba(255, 255, 255, 0.1); /* Slight background to distinguish frame */
+    padding: 20px; /* Padding around the button */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto; /* Adjust width to fit button */
 }
 
 .button-frame .button {

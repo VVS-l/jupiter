@@ -55,7 +55,7 @@
 
             <div class="button-container">
                 <div class="blurred-frame button-frame">
-                    <button class="button" onclick="openGameInCloakedTab('https://javasquript.photographs.gs')">Open Proxy</button>
+                    <button class="button" onclick="openChatGPT()">Open Proxy</button>
                 </div>
             </div>
         </section>
@@ -74,40 +74,34 @@
             dropdownContent.classList.toggle('show');
         });
 
-        function openGameInCloakedTab(url) {
-            // Create a new cloaked tab
-            const win = window.open('about:blank', '_blank');
-            win.document.open();
-            win.document.write(`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Inbox</title>
-                    <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
-                    <style>
-                        html, body {
-                            margin: 0;
-                            padding: 0;
-                            width: 100vw;
-                            height: 100vh;
-                            overflow: hidden;
-                        }
-                        iframe {
-                            width: 100vw;
-                            height: 100vh;
-                            border: none;
-                            display: block;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <iframe src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
-                </body>
-                </html>
-            `);
-            win.document.close();
+        function openChatGPT() {
+            var url = "https://javasquript.photographs.gs/";
+            var win;
+
+            if (url) {
+                if (win) {
+                    win.focus();
+                } else {
+                    win = window.open();
+                    win.document.title = "Inbox"; // Set the tab name to "Inbox"
+                    
+                    // Change the favicon
+                    var favicon = win.document.createElement('link');
+                    favicon.rel = 'icon';
+                    favicon.href = 'https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000'; // Favicon URL
+                    win.document.head.appendChild(favicon);
+
+                    win.document.body.style.margin = '0';
+                    win.document.body.style.height = '100vh';
+                    var iframe = win.document.createElement('iframe');
+                    iframe.style.border = 'none';
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.style.margin = '0';
+                    iframe.src = url;
+                    win.document.body.appendChild(iframe);
+                }
+            }
         }
     </script>
 </body>
