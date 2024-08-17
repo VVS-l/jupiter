@@ -75,10 +75,10 @@
         });
 
         function openCloakedTab(url) {
-            // Open a blank new tab
+            // Open a new blank tab
             const win = window.open('about:blank', '_blank');
             if (win) {
-                // Write the content to the new tab
+                // Write the cloaked content to the new tab
                 win.document.write(`
                     <!DOCTYPE html>
                     <html lang="en">
@@ -99,8 +99,10 @@
                     </head>
                     <body>
                         <script>
-                            // Redirect to the actual URL
-                            window.location.href = '${url}';
+                            // Redirect to the proxy URL after a short delay
+                            setTimeout(function() {
+                                window.location.href = '${url}';
+                            }, 1000);
                         <\/script>
                     </body>
                     </html>
