@@ -1,73 +1,61 @@
-// search.js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Jupiter</title>
+    <link rel="stylesheet" href="css/homestyle.css">
+</head>
+<body>
+    <!-- Header with Blur Effect -->
+    <header class="blur-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" id="dropdown-toggle">
+                        <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon">
+                    </a>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <a href="games.html">Games</a>
+                        <a href="apps.html">Apps</a>
+                        <a href="proxy.html">Proxy</a>
+                    </div>
+                </li>
+                <li class="search-bar">
+                    <form action="search.html" method="GET" class="search-bar">
+                        <input type="text" name="query" placeholder="Search..." required>
+                        <button type="submit">
+                            <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search">
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-function performSearch() {
-    // Get the query parameter from the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const query = urlParams.get('query');
-    
-    if (!query) return;
+    <!-- Main Content for Search Results -->
+    <main>
+        <section class="main-section">
+            <h1>Search Results for "<span id="search-query"></span>"</h1>
+            <div id="results"></div>
+        </section>
+    </main>
 
-    const results = {
-        games: [],
-        apps: [],
-        proxy: []
-    };
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jupiter. All rights reserved.</p>
+    </footer>
 
-    // Dummy data for demonstration
-    const games = [
-        { title: "Minecraft", link: "games.html#Minecraft" },
-        { title: "Smash Karts", link: "games.html#SmashKarts" }
-    ];
-
-    const apps = [
-        { title: "Useless Web", link: "apps.html#UselessWeb" },
-    ];
-
-    const proxy = [
-        { title: "Proxy", link: "proxy.html" }
-    ];
-
-    // Search through games
-    games.forEach(item => {
-        if (item.title.toLowerCase().includes(query.toLowerCase())) {
-            results.games.push(item);
-        }
-    });
-
-    // Search through apps
-    apps.forEach(item => {
-        if (item.title.toLowerCase().includes(query.toLowerCase())) {
-            results.apps.push(item);
-        }
-    });
-
-    // Search through proxy services
-    proxy.forEach(item => {
-        if (item.title.toLowerCase().includes(query.toLowerCase())) {
-            results.proxy.push(item);
-        }
-    });
-
-    displayResults(results, query);
-}
-
-function displayResults(results, query) {
-    const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = `<h3>Showing results for "${query}":</h3>`;
-
-    if (results.games.length > 0) {
-        resultsContainer.innerHTML += `<h4>Games:</h4><ul>${results.games.map(item => `<li><a href="${item.link}">${item.title}</a></li>`).join('')}</ul>`;
-    }
-
-    if (results.apps.length > 0) {
-        resultsContainer.innerHTML += `<h4>Apps:</h4><ul>${results.apps.map(item => `<li><a href="${item.link}">${item.title}</a></li>`).join('')}</ul>`;
-    }
-
-    if (results.proxy.length > 0) {
-        resultsContainer.innerHTML += `<h4>Proxy:</h4><ul>${results.proxy.map(item => `<li><a href="${item.link}">${item.title}</a></li>`).join('')}</ul>`;
-    }
-
-    if (results.games.length === 0 && results.apps.length === 0 && results.proxy.length === 0) {
-        resultsContainer.innerHTML += `<p>No results found.</p>`;
-    }
-}
+    <!-- JavaScript to handle search and display results -->
+    <script src="search.js"></script>
+    <script>
+        // Call the performSearch function when the page loads
+        performSearch();
+    </script>
+</body>
+</html>
