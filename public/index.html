@@ -12,9 +12,7 @@
     <!-- Header with Blur Effect -->
     <header class="blur-header">
         <div class="logo">
-            <a href="index.html">
-                <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
-            </a>
+            <a href="index.html"><img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo"></a>
         </div>
         <nav>
             <ul>
@@ -27,10 +25,8 @@
                     </div>
                 </li>
                 <li class="search-bar">
-                    <form id="search-form">
-                        <input type="text" id="search-input" placeholder="Search...">
-                        <button type="submit"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
-                    </form>
+                    <input type="text" id="search-query" placeholder="Search...">
+                    <button onclick="performSearch()"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
                 </li>
             </ul>
         </nav>
@@ -75,6 +71,8 @@
                     <a href="proxy.html" class="button">Go to Proxy</a>
                 </div>
             </div>
+
+            <div id="search-results" class="search-results"></div>
         </section>
     </main>
 
@@ -83,7 +81,7 @@
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Toggle -->
+    <!-- JavaScript for Dropdown Toggle and Search Functionality -->
     <script src="js/search.js"></script>
     <script>
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
