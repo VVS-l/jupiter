@@ -78,13 +78,14 @@ function openGameInCloakedTab(url) {
                 </style>
             </head>
             <body>
+                <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
                 <div class="sidebar" onclick="toggleSidebar()">
                     <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
                     <ul>
-                        <li onclick="navigateToPage('/')">Home</li>
-                        <li onclick="navigateToPage('/games.html')">Games</li>
-                        <li onclick="navigateToPage('/apps.html')">Apps</li>
-                        <li onclick="navigateToPage('/proxy.html')">Proxy</li>
+                        <li onclick="reopenMainSite('/')">Home</li>
+                        <li onclick="reopenMainSite('/games.html')">Games</li>
+                        <li onclick="reopenMainSite('/apps.html')">Apps</li>
+                        <li onclick="reopenMainSite('/proxy.html')">Proxy</li>
                         <li class="close-button" onclick="closeMenu()">Close GUI</li>
                     </ul>
                 </div>
@@ -103,8 +104,8 @@ function openGameInCloakedTab(url) {
                         }
                     }
 
-                    function navigateToPage(newUrl) {
-                        // Close the current tab and open the selected page in a new tab
+                    function reopenMainSite(newUrl) {
+                        // Close the current cloaked tab and open the main site without cloaking
                         window.close();
                         window.open('https://jupiterx.vercel.app' + newUrl, '_blank');
                     }
@@ -120,7 +121,6 @@ function openGameInCloakedTab(url) {
     // Close the current tab
     window.close();
 }
-
 
 // Function to fetch game data
 async function fetchGameData(folderPath) {
