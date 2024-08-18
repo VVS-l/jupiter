@@ -82,7 +82,7 @@ function openGameInCloakedTab(url) {
                 <div class="sidebar" onclick="toggleSidebar()">
                     <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
                     <ul>
-                        <li onclick="navigateIframe('/')">Home</li>
+                        <li onclick="reopenMainSite()">Home</li>
                         <li onclick="navigateIframe('/games.html')">Games</li>
                         <li onclick="navigateIframe('/apps.html')">Apps</li>
                         <li onclick="navigateIframe('/proxy.html')">Proxy</li>
@@ -107,6 +107,11 @@ function openGameInCloakedTab(url) {
                     function navigateIframe(newUrl) {
                         document.getElementById('cloakedFrame').src = newUrl;
                     }
+
+                    function reopenMainSite() {
+                        // Reopen the main site cloaked
+                        win.location.href = 'https://jupiterx.vercel.app/';
+                    }
                 </script>
             </body>
             </html>
@@ -119,6 +124,7 @@ function openGameInCloakedTab(url) {
     // Close the current tab
     window.close();
 }
+
 
 // Function to fetch game data
 async function fetchGameData(folderPath) {
