@@ -1,15 +1,11 @@
-let cloakedTab = null; // Initialize cloakedTab globally
-
 function openGameInCloakedTab(url) {
-    // Check if the cloakedTab is already open; if not, open a new one
-    if (cloakedTab === null || cloakedTab.closed) {
-        cloakedTab = window.open('about:blank', '_blank');
-    }
+    // Create a new cloaked tab
+    const win = window.open('about:blank', '_blank');
 
-    // Ensure cloakedTab is available before accessing its document
-    if (cloakedTab) {
-        cloakedTab.document.open();
-        cloakedTab.document.write(`
+    // Ensure win is available before accessing its document
+    if (win) {
+        win.document.open();
+        win.document.write(`
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -82,14 +78,13 @@ function openGameInCloakedTab(url) {
                 </style>
             </head>
             <body>
-                <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
                 <div class="sidebar" onclick="toggleSidebar()">
                     <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
                     <ul>
-                        <li onclick="reopenMainSite('/')">Home</li>
-                        <li onclick="reopenMainSite('/games.html')">Games</li>
-                        <li onclick="reopenMainSite('/apps.html')">Apps</li>
-                        <li onclick="reopenMainSite('/proxy.html')">Proxy</li>
+                        <li onclick="navigateToPage('/')">Home</li>
+                        <li onclick="navigateToPage('/games.html')">Games</li>
+                        <li onclick="navigateToPage('/apps.html')">Apps</li>
+                        <li onclick="navigateToPage('/proxy.html')">Proxy</li>
                         <li class="close-button" onclick="closeMenu()">Close GUI</li>
                     </ul>
                 </div>
@@ -108,19 +103,16 @@ function openGameInCloakedTab(url) {
                         }
                     }
 
-                    function reopenMainSite(newUrl) {
-                        // Reopen the main site cloaked
-                        if (cloakedTab && !cloakedTab.closed) {
-                            cloakedTab.location.href = 'https://jupiterx.vercel.app' + newUrl;
-                        } else {
-                            console.error("Cloaked tab is not available.");
-                        }
+                    function navigateToPage(newUrl) {
+                        // Close the current tab and open the selected page in a new tab
+                        window.close();
+                        window.open('https://jupiterx.vercel.app' + newUrl, '_blank');
                     }
                 </script>
             </body>
             </html>
         `);
-        cloakedTab.document.close();
+        win.document.close();
     } else {
         console.error("Failed to open cloaked tab.");
     }
