@@ -105,9 +105,47 @@ function openGameInCloakedTab(url) {
                     }
 
                     function reopenMainSite(newUrl) {
-                        // Close the current cloaked tab and open the main site without cloaking
+                        // Open the main site in a new cloaked tab
+                        const newTab = window.open('about:blank', '_blank');
+                        
+                        if (newTab) {
+                            newTab.document.open();
+                            newTab.document.write(`
+                                <!DOCTYPE html>
+                                <html lang="en">
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <title>Inbox</title>
+                                    <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
+                                    <style>
+                                        html, body {
+                                            margin: 0;
+                                            padding: 0;
+                                            width: 100vw;
+                                            height: 100vh;
+                                            overflow: hidden;
+                                        }
+                                        iframe {
+                                            width: 100vw;
+                                            height: 100vh;
+                                            border: none;
+                                            display: block;
+                                        }
+                                    </style>
+                                </head>
+                                <body>
+                                    <iframe id="cloakedFrame" src="https://jupiterx.vercel.app${newUrl}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+                                </body>
+                                </html>
+                            `);
+                            newTab.document.close();
+                        } else {
+                            console.error("Failed to reopen the main site in a cloaked tab.");
+                        }
+
+                        // Close the current cloaked tab
                         window.close();
-                        window.open('https://jupiterx.vercel.app' + newUrl, '_blank');
                     }
                 </script>
             </body>
