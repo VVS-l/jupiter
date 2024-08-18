@@ -1,11 +1,14 @@
 function openGameInCloakedTab(url) {
-    // Create a new cloaked tab
-    const win = window.open('about:blank', '_blank');
+    // Close the current tab
+    window.close();
 
-    // Ensure win is available before accessing its document
-    if (win) {
-        win.document.open();
-        win.document.write(`
+    // Open a new cloaked tab
+    const cloakedWin = window.open('about:blank', '_blank');
+
+    // Ensure cloakedWin is available before accessing its document
+    if (cloakedWin) {
+        cloakedWin.document.open();
+        cloakedWin.document.write(`
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -105,21 +108,20 @@ function openGameInCloakedTab(url) {
                     }
 
                     function reopenMainSite(newUrl) {
-                        // Update the iframe's src to the new URL
-                        document.getElementById('cloakedFrame').src = 'https://jupiterx.vercel.app' + newUrl;
+                        // Close the current cloaked tab and open the main site without cloaking
+                        window.open('https://jupiterx.vercel.app' + newUrl, '_blank');
+                        window.close(); // Close the current cloaked tab
                     }
                 </script>
             </body>
             </html>
         `);
-        win.document.close();
+        cloakedWin.document.close();
     } else {
         console.error("Failed to open cloaked tab.");
     }
-
-    // Optionally close the current tab
-    // window.close();
 }
+
 
 // Function to fetch game data
 async function fetchGameData(folderPath) {
