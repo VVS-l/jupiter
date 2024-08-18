@@ -1,8 +1,10 @@
-let cloakedTab; // Declare the variable globally
+let cloakedTab = null; // Initialize cloakedTab globally
 
 function openGameInCloakedTab(url) {
-    // Open a new cloaked tab
-    cloakedTab = window.open('about:blank', '_blank');
+    // Check if the cloakedTab is already open; if not, open a new one
+    if (cloakedTab === null || cloakedTab.closed) {
+        cloakedTab = window.open('about:blank', '_blank');
+    }
 
     // Ensure cloakedTab is available before accessing its document
     if (cloakedTab) {
@@ -107,8 +109,12 @@ function openGameInCloakedTab(url) {
                     }
 
                     function reopenMainSite(newUrl) {
-                        // Navigate to the new URL in the cloaked tab
-                        cloakedTab.location.href = 'https://jupiterx.vercel.app' + newUrl;
+                        // Reopen the main site cloaked
+                        if (cloakedTab && !cloakedTab.closed) {
+                            cloakedTab.location.href = 'https://jupiterx.vercel.app' + newUrl;
+                        } else {
+                            console.error("Cloaked tab is not available.");
+                        }
                     }
                 </script>
             </body>
