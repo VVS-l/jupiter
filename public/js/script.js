@@ -11,7 +11,7 @@ function openGameInCloakedTab(url) {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Inbox</title>
+                <title>Cloaked Page</title>
                 <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
                 <style>
                     html, body {
@@ -105,45 +105,8 @@ function openGameInCloakedTab(url) {
                     }
 
                     function reopenMainSite(newUrl) {
-                        // Close the current cloaked tab
-                        window.close();
-                        // Open the main site in a cloaked manner
-                        const cloakedWin = window.open('about:blank', '_blank');
-                        if (cloakedWin) {
-                            cloakedWin.document.open();
-                            cloakedWin.document.write(`
-                                <!DOCTYPE html>
-                                <html lang="en">
-                                <head>
-                                    <meta charset="UTF-8">
-                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                    <title>Main Site</title>
-                                    <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
-                                    <style>
-                                        html, body {
-                                            margin: 0;
-                                            padding: 0;
-                                            width: 100vw;
-                                            height: 100vh;
-                                            overflow: hidden;
-                                        }
-                                        iframe {
-                                            width: 100vw;
-                                            height: 100vh;
-                                            border: none;
-                                            display: block;
-                                        }
-                                    </style>
-                                </head>
-                                <body>
-                                    <iframe id="cloakedFrame" src="https://jupiterx.vercel.app${newUrl}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
-                                </body>
-                                </html>
-                            `);
-                            cloakedWin.document.close();
-                        } else {
-                            console.error("Failed to open cloaked tab for main site.");
-                        }
+                        // Update the iframe's src to the new URL
+                        document.getElementById('cloakedFrame').src = 'https://jupiterx.vercel.app' + newUrl;
                     }
                 </script>
             </body>
@@ -154,10 +117,9 @@ function openGameInCloakedTab(url) {
         console.error("Failed to open cloaked tab.");
     }
 
-    // Close the current tab
-    window.close();
+    // Optionally close the current tab
+    // window.close();
 }
-
 
 // Function to fetch game data
 async function fetchGameData(folderPath) {
