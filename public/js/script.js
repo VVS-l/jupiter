@@ -105,18 +105,19 @@ function openGameInCloakedTab(url) {
                     }
 
                     function reopenMainSite(newUrl) {
-                        // Open the main site in a new cloaked tab
-                        const newTab = window.open('about:blank', '_blank');
-                        
-                        if (newTab) {
-                            newTab.document.open();
-                            newTab.document.write(`
+                        // Close the current cloaked tab
+                        window.close();
+                        // Open the main site in a cloaked manner
+                        const cloakedWin = window.open('about:blank', '_blank');
+                        if (cloakedWin) {
+                            cloakedWin.document.open();
+                            cloakedWin.document.write(`
                                 <!DOCTYPE html>
                                 <html lang="en">
                                 <head>
                                     <meta charset="UTF-8">
                                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                    <title>Inbox</title>
+                                    <title>Main Site</title>
                                     <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
                                     <style>
                                         html, body {
@@ -139,13 +140,10 @@ function openGameInCloakedTab(url) {
                                 </body>
                                 </html>
                             `);
-                            newTab.document.close();
+                            cloakedWin.document.close();
                         } else {
-                            console.error("Failed to reopen the main site in a cloaked tab.");
+                            console.error("Failed to open cloaked tab for main site.");
                         }
-
-                        // Close the current cloaked tab
-                        window.close();
                     }
                 </script>
             </body>
@@ -159,6 +157,7 @@ function openGameInCloakedTab(url) {
     // Close the current tab
     window.close();
 }
+
 
 // Function to fetch game data
 async function fetchGameData(folderPath) {
