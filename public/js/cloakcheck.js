@@ -1,15 +1,27 @@
-<script>
-  // Function to check for cloaking query parameter
-  function checkIfCloked() {
-    var urlParams = new URLSearchParams(window.location.search);
-    if (!urlParams.has('cloaked')) {
-      // User did not come through the launcher
-      document.body.innerHTML = '<h1>⚠️ Please use the launcher to access this site.</h1>';
-      document.body.style.backgroundColor = '#000'; // Adjust as needed
-      return;
-    }
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox</title> <!-- This should be set by the launcher if the site is cloaked -->
+    <style>
+        /* Your existing styles */
+    </style>
+</head>
+<body>
+    <!-- Your existing content -->
 
-  // Run the check on page load
-  window.onload = checkIfCloked;
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check the document title
+            if (document.title === 'Inbox') {
+                console.log('The site is correctly cloaked with title "Inbox".');
+            } else {
+                console.error('⚠️ The site is not cloaked properly. Expected title "Inbox", but found: ' + document.title);
+                // Optionally, display a message to the user
+                alert('⚠️ The site is not cloaked properly. Please use the recommended launcher.');
+            }
+        });
+    </script>
+</body>
+</html>
