@@ -11,8 +11,8 @@ function openGameInCloakedTab(url) {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Inbox</title>
-                <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
+                <title>Edpuzzle</title>
+                <link rel="icon" href="https://i.postimg.cc/LXChv87v/EDP.png" type="image/png">
                 <style>
                     html, body {
                         margin: 0;
