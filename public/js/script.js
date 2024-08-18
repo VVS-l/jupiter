@@ -1,11 +1,13 @@
-function openGameInCloakedTab(url) {
-    // Create a new cloaked tab
-    const win = window.open('about:blank', '_blank');
+let cloakedTab; // Declare the variable globally
 
-    // Ensure win is available before accessing its document
-    if (win) {
-        win.document.open();
-        win.document.write(`
+function openGameInCloakedTab(url) {
+    // Open a new cloaked tab
+    cloakedTab = window.open('about:blank', '_blank');
+
+    // Ensure cloakedTab is available before accessing its document
+    if (cloakedTab) {
+        cloakedTab.document.open();
+        cloakedTab.document.write(`
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -82,10 +84,10 @@ function openGameInCloakedTab(url) {
                 <div class="sidebar" onclick="toggleSidebar()">
                     <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
                     <ul>
-                        <li onclick="reopenMainSite()">Home</li>
-                        <li onclick="navigateIframe('/games.html')">Games</li>
-                        <li onclick="navigateIframe('/apps.html')">Apps</li>
-                        <li onclick="navigateIframe('/proxy.html')">Proxy</li>
+                        <li onclick="reopenMainSite('/')">Home</li>
+                        <li onclick="reopenMainSite('/games.html')">Games</li>
+                        <li onclick="reopenMainSite('/apps.html')">Apps</li>
+                        <li onclick="reopenMainSite('/proxy.html')">Proxy</li>
                         <li class="close-button" onclick="closeMenu()">Close GUI</li>
                     </ul>
                 </div>
@@ -104,19 +106,15 @@ function openGameInCloakedTab(url) {
                         }
                     }
 
-                    function navigateIframe(newUrl) {
-                        document.getElementById('cloakedFrame').src = newUrl;
-                    }
-
-                    function reopenMainSite() {
-                        // Reopen the main site cloaked
-                        win.location.href = 'https://jupiterx.vercel.app/';
+                    function reopenMainSite(newUrl) {
+                        // Navigate to the new URL in the cloaked tab
+                        cloakedTab.location.href = 'https://jupiterx.vercel.app' + newUrl;
                     }
                 </script>
             </body>
             </html>
         `);
-        win.document.close();
+        cloakedTab.document.close();
     } else {
         console.error("Failed to open cloaked tab.");
     }
