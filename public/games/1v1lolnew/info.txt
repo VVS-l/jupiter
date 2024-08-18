@@ -1,0 +1,3 @@
+Name: 1v1 LOL
+Genre: Action
+URL: /games/1v1lolnew/index.html

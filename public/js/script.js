@@ -62,7 +62,7 @@ async function fetchGameData(folderPath) {
 }
 // Function to load games
 async function loadGames() {
-    const gameFolders = ['/games/SmashKarts', '/games/Minecraft', '/games/Uno']; // Only Smash Karts for now
+    const gameFolders = ['/games/SmashKarts', '/games/Minecraft', '/games/Uno', '/games/1v1lolold', '/games/1v1lolnew']; // Only Smash Karts for now
     for (const folderPath of gameFolders) {
         const gameInfo = await fetchGameData(folderPath);
         if (!gameInfo) {
