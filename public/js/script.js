@@ -1,11 +1,10 @@
-function openGameInCloakedTab(url) {
-    // Close the current tab
+function reopenMainSite(newUrl) {
+    // Close the current cloaked tab
     window.close();
 
-    // Open a new cloaked tab
-    const cloakedWin = window.open('about:blank', '_blank');
+    // Open a new cloaked tab with the main site
+    const cloakedWin = window.open('', '_blank');
 
-    // Ensure cloakedWin is available before accessing its document
     if (cloakedWin) {
         cloakedWin.document.open();
         cloakedWin.document.write(`
@@ -15,7 +14,6 @@ function openGameInCloakedTab(url) {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Cloaked Page</title>
-                <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
                 <style>
                     html, body {
                         margin: 0;
@@ -81,7 +79,7 @@ function openGameInCloakedTab(url) {
                 </style>
             </head>
             <body>
-                <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+                <iframe id="cloakedFrame" src="https://jupiterx.vercel.app${newUrl}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
                 <div class="sidebar" onclick="toggleSidebar()">
                     <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Menu Icon">
                     <ul>
@@ -105,12 +103,6 @@ function openGameInCloakedTab(url) {
                             // Hide the sidebar
                             sidebar.style.display = 'none';
                         }
-                    }
-
-                    function reopenMainSite(newUrl) {
-                        // Close the current cloaked tab and open the main site without cloaking
-                        window.open('https://jupiterx.vercel.app' + newUrl, '_blank');
-                        window.close(); // Close the current cloaked tab
                     }
                 </script>
             </body>
