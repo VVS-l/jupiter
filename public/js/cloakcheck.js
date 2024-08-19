@@ -1,30 +1,24 @@
 window.addEventListener('load', function() {
-    // Check if the tab has been previously checked
-    const previouslyChecked = localStorage.getItem('launcherChecked');
-    
-    // If the tab was previously checked, do nothing
-    if (previouslyChecked === 'true') {
-        console.log('The site has been previously checked.');
-        return;
+    // Function to reset the launcher flag
+    function resetLauncherFlag() {
+        localStorage.setItem('launcherFlag', 'false');
     }
-    
+
     // Check if the URL has the 'launchedFromLauncher' parameter
     const urlParams = new URLSearchParams(window.location.search);
     const launchedFromLauncher = urlParams.get('launchedFromLauncher');
-    
+
     // Set or check local storage based on the URL parameter
     if (launchedFromLauncher === 'true') {
-        localStorage.setItem('openedFromLauncher', 'true');
-        localStorage.setItem('launcherChecked', 'true'); // Mark as checked
-    } else {
-        localStorage.setItem('openedFromLauncher', 'false');
-        localStorage.setItem('launcherChecked', 'false'); // Reset the flag if not opened from launcher
+        localStorage.setItem('launcherFlag', 'true');
+        // Reset the launcher flag to false after 1 minute
+        setTimeout(resetLauncherFlag, 60000); // 60000 ms = 1 minute
     }
-    
+
     // Check local storage value
-    const openedFromLauncher = localStorage.getItem('openedFromLauncher');
-    
-    if (openedFromLauncher === 'true') {
+    const launcherFlag = localStorage.getItem('launcherFlag');
+
+    if (launcherFlag === 'true') {
         console.log('The site was opened from the launcher.');
     } else {
         console.log('The site was not opened from the launcher. Redirecting to warning page.');

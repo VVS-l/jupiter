@@ -1,21 +1,16 @@
 // Function to show the popup
 function showPopup() {
     const popup = document.getElementById('popup');
-    if (popup) {
-        popup.style.display = 'block';
-    }
+    popup.style.display = 'block';
 }
 
 // Function to check if the site was opened from the launcher
 function checkLauncher() {
-    const openedFromLauncher = localStorage.getItem('openedFromLauncher');
+    const launcherFlag = localStorage.getItem('launcherFlag');
 
-    if (openedFromLauncher === 'true') {
-        // Hide the popup if opened from the launcher
-        const popup = document.getElementById('popup');
-        if (popup) {
-            popup.style.display = 'none';
-        }
+    if (launcherFlag === 'true') {
+        // Do nothing if opened from the launcher
+        document.getElementById('popup').style.display = 'none';
         return; // Exit the function
     }
 
