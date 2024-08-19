@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const launchedFromLauncher = urlParams.get('launchedFromLauncher');
 
-    // Set or check session storage based on the URL parameter
+    // Set session storage based on the URL parameter
     if (launchedFromLauncher === 'true') {
         sessionStorage.setItem('launcherFlag', 'true');
         // Reset the launcher flag to false after 1 minute
@@ -20,6 +20,8 @@ window.addEventListener('load', function() {
 
     if (launcherFlag === 'true') {
         console.log('The site was opened from the launcher.');
+        // Do nothing if opened from the launcher
+        return; // Exit the function, no need to redirect
     } else {
         console.log('The site was not opened from the launcher. Redirecting to warning page.');
         // Redirect to warning page
