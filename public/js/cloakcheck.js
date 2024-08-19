@@ -15,12 +15,11 @@ window.addEventListener('load', function() {
     // Set or check local storage based on the URL parameter
     if (launchedFromLauncher === 'true') {
         localStorage.setItem('openedFromLauncher', 'true');
+        localStorage.setItem('launcherChecked', 'true'); // Mark as checked
     } else {
         localStorage.setItem('openedFromLauncher', 'false');
+        localStorage.setItem('launcherChecked', 'false'); // Reset the flag if not opened from launcher
     }
-    
-    // Mark that the check has been performed
-    localStorage.setItem('launcherChecked', 'true');
     
     // Check local storage value
     const openedFromLauncher = localStorage.getItem('openedFromLauncher');
