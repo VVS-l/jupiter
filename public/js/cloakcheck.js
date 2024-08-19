@@ -1,14 +1,15 @@
-// Function to check for the presence of the launch message
-function checkForLaunchMessage() {
-  // Use querySelector to find the message element by its style property
-  var message = document.querySelector('div[style*="position: fixed; bottom: 10px; left: 10px;"]');
+// Function to check if the text "Site was launched with launcher" exists anywhere in the page's HTML
+function checkForLaunchMessageInHTML() {
+  setTimeout(function() {
+    var htmlContent = document.documentElement.outerHTML;
 
-  if (message) {
-    console.log('The site was launched with the launcher.');
-  } else {
-    console.error('Error: The site was not launched with the launcher. Missing launch message.');
-  }
+    if (htmlContent.includes("Site was launched with launcher")) {
+      console.log('The site was launched with the launcher.');
+    } else {
+      console.error('Error: The site was not launched with the launcher. Missing launch message.');
+    }
+  }, 2000); // 2000 milliseconds = 2 seconds
 }
 
-// Execute the function to check for the launch message
-checkForLaunchMessage();
+// Execute the function to check for the launch message in the HTML after a 2-second delay
+checkForLaunchMessageInHTML();
