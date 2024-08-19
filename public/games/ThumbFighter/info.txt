@@ -1,0 +1,3 @@
+Name: Thumb Fighter
+Genre: Action
+URL: /games/ThumbFighter/index.html

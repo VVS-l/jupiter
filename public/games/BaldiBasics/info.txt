@@ -1,0 +1,3 @@
+Name: Baldi's Basics
+Genre: Strategy
+URL: /games/BaldiBasics/index.html

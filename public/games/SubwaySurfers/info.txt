@@ -1,0 +1,3 @@
+Name: Subway Surfers
+Genre: Strategy
+URL: /games/SubwaySurfers/index.html

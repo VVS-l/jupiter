@@ -1,0 +1,3 @@
+Name: Crossy Bacon
+Genre: Strategy
+URL: /games/CrossyBacon/index.html

@@ -1,0 +1,3 @@
+Name: Clicker Heros
+Genre: Other
+URL: /games/ClickerHeros/index.html
