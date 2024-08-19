@@ -1,0 +1,3 @@
+Name: Pixwars 2
+Genre: Action
+URL: /games/pixwars2/index.html

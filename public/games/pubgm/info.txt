@@ -1,3 +1,0 @@
-Name: PUBG (weird)
-Genre: Action
-URL: /games/pubgm/index.html
