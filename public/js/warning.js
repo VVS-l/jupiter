@@ -1,9 +1,9 @@
-window.onload = function() {
+window.addEventListener('load', function() {
   // Function to show the popup
   function showPopup() {
     const popup = document.getElementById('popup');
     popup.style.display = 'block';
-
+    
     let countdown = 5; // Countdown in seconds
     const closeButton = document.getElementById('close-button');
 
@@ -22,11 +22,15 @@ window.onload = function() {
     const countdownInterval = setInterval(updateCountdown, 1000);
   }
 
-  // Show the popup when the page loads
-  showPopup();
+  // Check if the warning has already been acknowledged
+  if (!localStorage.getItem('warningAcknowledged')) {
+    // Show the warning popup
+    showPopup();
+  }
 
-  // Close button functionality
+  // Handle the close button click
   document.getElementById('close-button').addEventListener('click', function() {
-    window.location.href = 'index.html'; // Redirect to main page
+    localStorage.setItem('warningAcknowledged', 'true'); // Set the flag
+    window.location.href = 'index.html'; // Redirect to the home page
   });
-};
+});
