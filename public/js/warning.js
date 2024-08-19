@@ -9,7 +9,7 @@ function checkLauncher() {
     const launcherFlag = localStorage.getItem('launcherFlag');
 
     if (launcherFlag === 'true') {
-        // Do nothing if opened from the launcher
+        // Hide popup if opened from the launcher
         document.getElementById('popup').style.display = 'none';
         return; // Exit the function
     }
