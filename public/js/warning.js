@@ -19,4 +19,19 @@ function checkLauncher() {
 }
 
 // Check launcher status on page load
-window.addEventListener('load', checkLauncher);
+window.addEventListener('load', function() {
+    // Check if the warning has been acknowledged
+    const acknowledged = localStorage.getItem('warningAcknowledged');
+
+    if (acknowledged !== 'true') {
+        checkLauncher();
+    } else {
+        document.getElementById('popup').style.display = 'none'; // Hide popup if acknowledged
+    }
+});
+
+// Event listener for use launcher button
+document.querySelector('.button').addEventListener('click', function() {
+    // Set the local storage item to indicate the warning was acknowledged
+    localStorage.setItem('warningAcknowledged', 'true');
+});
