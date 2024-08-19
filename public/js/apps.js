@@ -1,34 +1,43 @@
-// Function to open the app in a modal
-function openAppInModal(url) {
-    const modal = document.getElementById('appModal');
-    const iframe = document.getElementById('appFrame');
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const modalContent = document.querySelector('#appModal .modal-content');
+// Function to open the app in a cloaked tab
+function openAppInCloakedTab(url) {
+    // Create a new cloaked tab
+    const win = window.open('about:blank', '_blank');
 
-    console.log('Opening app URL:', url); // Debug line to check URL
-
-    iframe.src = url;
-    modal.style.display = 'block';
-
-    // Close the modal
-    const closeModal = document.querySelector('#appModal .close');
-    closeModal.onclick = function() {
-        modal.style.display = 'none';
-        iframe.src = ''; // Stop the app when closing the modal
-    };
-
-    // Toggle fullscreen mode
-    fullscreenBtn.onclick = function() {
-        if (iframe.requestFullscreen) {
-            iframe.requestFullscreen();
-        } else if (iframe.mozRequestFullScreen) { /* Firefox */
-            iframe.mozRequestFullScreen();
-        } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            iframe.webkitRequestFullscreen();
-        } else if (iframe.msRequestFullscreen) { /* IE/Edge */
-            iframe.msRequestFullscreen();
-        }
-    };
+    // Ensure win is available before accessing its document
+    if (win) {
+        win.document.open();
+        win.document.write(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>App</title>
+                <style>
+                    html, body {
+                        margin: 0;
+                        padding: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        overflow: hidden;
+                    }
+                    iframe {
+                        width: 100vw;
+                        height: 100vh;
+                        border: none;
+                        display: block;
+                    }
+                </style>
+            </head>
+            <body>
+                <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+            </body>
+            </html>
+        `);
+        win.document.close();
+    } else {
+        console.error("Failed to open cloaked tab.");
+    }
 }
 
 // Function to fetch app data
@@ -65,7 +74,6 @@ async function loadApps() {
         }
 
         const appImageSrc = `${folderPath}/app.png`;
-        // Convert Category to lower-case and replace spaces with hyphens
         const appCategory = (appInfo.Category && appInfo.Category.toLowerCase().replace(/\s+/g, '-') + '-apps') || 'other-apps';
 
         const appGrid = document.querySelector(`#${appCategory} .app-grid`);
@@ -90,7 +98,7 @@ async function loadApps() {
         appGrid.appendChild(appThumbnail);
 
         // Make the app thumbnail clickable
-        appThumbnail.onclick = () => openAppInModal(appInfo.URL);
+        appThumbnail.onclick = () => openAppInCloakedTab(appInfo.URL);
     }
 }
 

@@ -13,73 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jupiter - Explore the Universe of Apps</title>
-    <link rel="stylesheet" href="css/appstyle.css"> <!-- Change CSS file if necessary -->
+    <link rel="stylesheet" href="css/appstyle.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Modal overlay styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
-        }
-
-        /* Modal content styles */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 800px;
-            position: relative;
-        }
-
-        /* Close button styles */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-        }
-
-        /* Fullscreen button styles */
-        .fullscreen-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 0;
-            cursor: pointer;
-        }
-
-        .fullscreen-btn:hover {
-            background-color: #45a049;
-        }
-
-        iframe {
-            width: 100%;
-            height: 600px; /* Adjust as needed */
-            border: none;
-        }
-    </style>
 </head>
 <body>
     <!-- Header with Blur Effect -->
@@ -113,8 +49,8 @@
             <hr class="app-line">
             <div class="app-grid"></div>
         </section>
-        <section id="utility-apps" class="app-section">
-            <h3>Utility Apps</h3>
+        <section id="social-apps" class="app-section">
+            <h3>Social Apps</h3>
             <hr class="app-line">
             <div class="app-grid"></div>
         </section>
@@ -123,8 +59,8 @@
             <hr class="app-line">
             <div class="app-grid"></div>
         </section>
-        <section id="social-apps" class="app-section">
-            <h3>Social Apps</h3>
+        <section id="entertainment-apps" class="app-section">
+            <h3>Entertainment Apps</h3>
             <hr class="app-line">
             <div class="app-grid"></div>
         </section>
@@ -135,25 +71,13 @@
         </section>
     </main>
 
-<!-- Modal -->
-<div id="appModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="fullscreenContainer">
-            <iframe id="appFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
-        </div>
-        <button id="fullscreenBtn">Fullscreen</button>
-        <p class="warning-text">Close any pop-ups! They are not from Jupiter.</p>
-    </div>
-</div>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
     <!-- JavaScript for Dropdown Toggle and Loading Apps -->
-    <script src="js/apps.js"></script>
+    <script src="js/script.js"></script>
     <script>
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
             event.preventDefault();

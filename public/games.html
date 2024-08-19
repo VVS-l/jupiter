@@ -16,70 +16,6 @@
     <link rel="stylesheet" href="css/gamestyle.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Modal overlay styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
-        }
-
-        /* Modal content styles */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 800px;
-            position: relative;
-        }
-
-        /* Close button styles */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-        }
-
-        /* Fullscreen button styles */
-        .fullscreen-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 0;
-            cursor: pointer;
-        }
-
-        .fullscreen-btn:hover {
-            background-color: #45a049;
-        }
-
-        iframe {
-            width: 100%;
-            height: 600px; /* Adjust as needed */
-            border: none;
-        }
-    </style>
 </head>
 <body>
     <!-- Header with Blur Effect -->
@@ -94,7 +30,7 @@
                     <div class="dropdown-content" id="dropdown-content">
                         <a href="games.html">Games</a>
                         <a href="apps.html">Apps</a>
-						<a href="proxy.html">Proxy</a>
+                        <a href="proxy.html">Proxy</a>
                     </div>
                 </li>
                 <li class="search-bar">
@@ -134,16 +70,6 @@
             <div class="game-grid"></div>
         </section>
     </main>
-
-    <!-- Modal -->
-    <div id="gameModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <iframe id="gameFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
-            <button id="fullscreenBtn" class="fullscreen-btn">Fullscreen</button>
-            <p class="warning-text">Close any pop-ups! They are not from Jupiter.</p>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer>
