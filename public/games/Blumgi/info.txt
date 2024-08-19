@@ -1,0 +1,3 @@
+Name: Blumgi Ball
+Genre: Other
+URL: /games/Blumgi/index.html

@@ -1,0 +1,3 @@
+Name: Rooftop Snipers
+Genre: Action
+URL: /games/RS/index.html

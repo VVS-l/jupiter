@@ -1,0 +1,3 @@
+Name: BBS2
+Genre: Other
+URL: /games/BBS2/index.html

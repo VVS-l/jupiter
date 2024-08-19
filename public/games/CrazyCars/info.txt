@@ -1,0 +1,3 @@
+Name: Crazy Cars
+Genre: Other
+URL: /games/CrazyCars/index.html

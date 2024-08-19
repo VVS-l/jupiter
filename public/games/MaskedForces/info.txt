@@ -1,0 +1,3 @@
+Name: Masked Forces
+Genre: Action
+URL: /games/MaskedForces/index.html

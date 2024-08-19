@@ -1,0 +1,3 @@
+Name: Pac-Man
+Genre: Strategy
+URL: /games/PacMan/index.html

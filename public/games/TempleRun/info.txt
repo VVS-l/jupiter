@@ -1,0 +1,3 @@
+Name: Temple Run 2
+Genre: Strategy
+URL: /games/TempleRun/index.html

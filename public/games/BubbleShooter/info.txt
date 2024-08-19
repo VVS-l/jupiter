@@ -1,0 +1,3 @@
+Name: Bubble Shooter
+Genre: Strategy
+URL: /games/BubbleShooter/index.html
