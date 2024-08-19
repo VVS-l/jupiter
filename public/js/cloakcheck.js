@@ -1,22 +1,22 @@
 window.addEventListener('load', function() {
     // Function to reset the launcher flag
     function resetLauncherFlag() {
-        localStorage.removeItem('launcherFlag'); // Clear the launcher flag
+        sessionStorage.removeItem('launcherFlag'); // Clear the launcher flag
     }
 
     // Check if the URL has the 'launchedFromLauncher' parameter
     const urlParams = new URLSearchParams(window.location.search);
     const launchedFromLauncher = urlParams.get('launchedFromLauncher');
 
-    // Set or check local storage based on the URL parameter
+    // Set or check session storage based on the URL parameter
     if (launchedFromLauncher === 'true') {
-        localStorage.setItem('launcherFlag', 'true');
+        sessionStorage.setItem('launcherFlag', 'true');
         // Reset the launcher flag to false after 1 minute
         setTimeout(resetLauncherFlag, 60000); // 60000 ms = 1 minute
     }
 
-    // Check local storage value
-    const launcherFlag = localStorage.getItem('launcherFlag');
+    // Check session storage value
+    const launcherFlag = sessionStorage.getItem('launcherFlag');
 
     if (launcherFlag === 'true') {
         console.log('The site was opened from the launcher.');
@@ -27,5 +27,5 @@ window.addEventListener('load', function() {
     }
 
     // Reset the launcher flag when the tab is closed
-    window.addEventListener('unload', resetLauncherFlag);
+    window.addEventListener('beforeunload', resetLauncherFlag);
 });
