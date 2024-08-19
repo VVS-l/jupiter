@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
     // Check local storage value
     const launcherFlag = localStorage.getItem('launcherFlag');
 
-    if (launcherFlag === 'true' && launchedFromLauncher === 'true') {
+    if (launcherFlag === 'true') {
         console.log('The site was opened from the launcher.');
     } else {
         console.log('The site was not opened from the launcher. Redirecting to warning page.');
