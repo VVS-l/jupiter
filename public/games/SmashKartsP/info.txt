@@ -1,0 +1,3 @@
+Name: Smash Karts
+Genre: Popular
+URL: /games/SmashKartsP/index.html
