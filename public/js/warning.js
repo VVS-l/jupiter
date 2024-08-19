@@ -1,10 +1,3 @@
-// Function to get the value of a specific cookie
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
 // Function to show the popup
 function showPopup() {
     const popup = document.getElementById('popup');
@@ -26,12 +19,16 @@ function showPopup() {
 
     // Start the countdown
     const countdownInterval = setInterval(updateCountdown, 1000);
+
+    // Close button functionality
+    closeButton.addEventListener('click', function() {
+        window.location.href = 'index.html'; // Redirect to the home page
+    });
 }
 
-// Check if the site was opened from the launcher
-window.onload = function() {
-    const launcherCookie = getCookie('openedFromLauncher');
-    if (launcherCookie !== 'true') {
-        showPopup(); // Show the popup if the cookie is not set or false
+// Check for the launcher cookie and show the popup if not found
+document.addEventListener('DOMContentLoaded', function() {
+    if (!document.cookie.split('; ').find(row => row.startsWith('launcherOpened='))) {
+        showPopup();
     }
-};
+});
