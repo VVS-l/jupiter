@@ -12,8 +12,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jupiter - Explore the Universe of Games</title>
+    <title>Jupiter V2</title>
     <link rel="stylesheet" href="css/homestyle.css">
+    <link rel="icon" href="https://i.postimg.cc/MpT3kX3V/jupiter.png" type="image/png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -21,20 +22,21 @@
     <!-- Header with Blur Effect -->
     <header class="blur-header">
         <div class="logo">
-            <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+            <a href="index.html"><img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo"></a>
         </div>
         <nav>
             <ul>
                 <li class="dropdown">
                     <a href="#" id="dropdown-toggle"><img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon"></a>
                     <div class="dropdown-content" id="dropdown-content">
-                        <a href="#">Games</a>
-                        <a href="#">Apps</a>
+                        <a href="games.html">Games</a>
+                        <a href="apps.html">Apps</a>
+                        <a href="proxy.html">Proxy</a>
                     </div>
                 </li>
                 <li class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
+                    <input type="text" id="search-query" placeholder="Search...">
+                    <button onclick="performSearch()"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
                 </li>
             </ul>
         </nav>
@@ -73,6 +75,14 @@
                     <a href="apps.html" class="button">Go to Apps</a>
                 </div>
             </div>
+
+            <div class="button-container">
+                <div class="blurred-frame button-frame">
+                    <a href="proxy.html" class="button">Go to Proxy</a>
+                </div>
+            </div>
+
+            <div id="search-results" class="search-results"></div>
         </section>
     </main>
 
@@ -81,7 +91,9 @@
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Toggle -->
+    <!-- JavaScript for Dropdown Toggle and Search Functionality -->
+    <script src="js/search.js"></script>
+    <script src="js/cloakcheck.js"></script> <!-- Add this line to include the cloakcheck.js file -->
     <script>
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
             event.preventDefault();
