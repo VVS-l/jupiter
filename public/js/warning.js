@@ -1,7 +1,9 @@
 // Function to show the popup
 function showPopup() {
     const popup = document.getElementById('popup');
-    popup.style.display = 'block';
+    if (popup) {
+        popup.style.display = 'block';
+    }
 }
 
 // Function to check if the site was opened from the launcher
@@ -10,7 +12,10 @@ function checkLauncher() {
 
     if (openedFromLauncher === 'true') {
         // Hide the popup if opened from the launcher
-        document.getElementById('popup').style.display = 'none';
+        const popup = document.getElementById('popup');
+        if (popup) {
+            popup.style.display = 'none';
+        }
         return; // Exit the function
     }
 
@@ -19,19 +24,4 @@ function checkLauncher() {
 }
 
 // Check launcher status on page load
-window.addEventListener('load', function() {
-    // Check if the warning has been acknowledged
-    const acknowledged = localStorage.getItem('warningAcknowledged');
-
-    if (acknowledged !== 'true') {
-        checkLauncher();
-    } else {
-        document.getElementById('popup').style.display = 'none'; // Hide popup if acknowledged
-    }
-});
-
-// Event listener for use launcher button
-document.querySelector('.button').addEventListener('click', function() {
-    // Set the local storage item to indicate the warning was acknowledged
-    localStorage.setItem('warningAcknowledged', 'true');
-});
+window.addEventListener('load', checkLauncher);

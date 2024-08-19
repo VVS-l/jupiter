@@ -1,4 +1,13 @@
 window.addEventListener('load', function() {
+    // Check if the tab has been previously checked
+    const previouslyChecked = localStorage.getItem('launcherChecked');
+    
+    // If the tab was previously checked, do nothing
+    if (previouslyChecked === 'true') {
+        console.log('The site has been previously checked.');
+        return;
+    }
+    
     // Check if the URL has the 'launchedFromLauncher' parameter
     const urlParams = new URLSearchParams(window.location.search);
     const launchedFromLauncher = urlParams.get('launchedFromLauncher');
@@ -6,10 +15,12 @@ window.addEventListener('load', function() {
     // Set or check local storage based on the URL parameter
     if (launchedFromLauncher === 'true') {
         localStorage.setItem('openedFromLauncher', 'true');
-        localStorage.setItem('warningAcknowledged', 'false'); // Reset warning acknowledgment
     } else {
         localStorage.setItem('openedFromLauncher', 'false');
     }
+    
+    // Mark that the check has been performed
+    localStorage.setItem('launcherChecked', 'true');
     
     // Check local storage value
     const openedFromLauncher = localStorage.getItem('openedFromLauncher');
