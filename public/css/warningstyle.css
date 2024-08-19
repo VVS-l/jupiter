@@ -1,0 +1,87 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif; /* Apply the custom font */
+}
+
+/* Body and Background Animation */
+body {
+    background: linear-gradient(135deg, #001f3f, #001f3f 50%, #000 100%); /* Spacey gradient */
+    color: #fff;
+    font-size: 14px;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column;
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none; /* Disable text selection for WebKit browsers */
+}
+
+/* Pop-up Window */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1001; /* Ensure the pop-up is on top */
+    display: none; /* Hidden by default */
+    overflow: hidden; /* Ensure no content overflows */
+}
+
+/* Pop-up Header */
+.popup-header {
+    font-size: 24px; /* Increased font size */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative; /* Ensure it stays in the proper place */
+    z-index: 1010; /* Ensure header is on top */
+}
+
+/* Pop-up Description */
+.popup-description {
+    margin-bottom: 20px;
+    text-align: center;
+    z-index: 1000; /* Ensure description is below the header */
+}
+
+/* Pop-up Buttons */
+.popup-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.popup-buttons .button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid #ff6600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.popup-buttons .button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.popup-buttons .close-button {
+    background: rgba(255, 0, 0, 0.2);
+    color: red;
+    cursor: not-allowed; /* Initial state */
+}
