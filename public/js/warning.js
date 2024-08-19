@@ -1,6 +1,5 @@
-window.addEventListener('load', function() {
-  // Function to show the popup
-  function showPopup() {
+// Function to show the popup
+function showPopup() {
     const popup = document.getElementById('popup');
     popup.style.display = 'block';
     
@@ -9,28 +8,35 @@ window.addEventListener('load', function() {
 
     // Function to update the countdown
     function updateCountdown() {
-      closeButton.textContent = `Close (${countdown})`;
-      if (countdown <= 0) {
-        closeButton.textContent = 'Close';
-        closeButton.disabled = false; // Enable the close button
-        clearInterval(countdownInterval); // Stop the countdown
-      }
-      countdown--;
+        closeButton.textContent = `Close (${countdown})`;
+        if (countdown <= 0) {
+            closeButton.textContent = 'Close';
+            closeButton.disabled = false; // Enable the close button
+            clearInterval(countdownInterval); // Stop the countdown
+        }
+        countdown--;
     }
 
     // Start the countdown
     const countdownInterval = setInterval(updateCountdown, 1000);
-  }
+}
 
-  // Check if the warning has already been acknowledged
-  if (!localStorage.getItem('warningAcknowledged')) {
-    // Show the warning popup
-    showPopup();
-  }
+// Function to handle button clicks
+function handleButtonClicks() {
+    const closeButton = document.getElementById('close-button');
+    closeButton.addEventListener('click', function() {
+        sessionStorage.setItem('warningDismissed', 'true');
+        window.location.href = 'index.html'; // Redirect to the main page
+    });
+}
 
-  // Handle the close button click
-  document.getElementById('close-button').addEventListener('click', function() {
-    localStorage.setItem('warningAcknowledged', 'true'); // Set the flag
-    window.location.href = 'index.html'; // Redirect to the home page
-  });
-});
+// Show the popup when the page loads if not dismissed
+window.onload = function() {
+    const warningDismissed = sessionStorage.getItem('warningDismissed');
+    if (warningDismissed !== 'true') {
+        showPopup();
+        handleButtonClicks();
+    } else {
+        window.location.href = 'index.html'; // Redirect to the main page if warning is dismissed
+    }
+};
