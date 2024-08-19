@@ -12,9 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jupiter V2</title>
+    <title>Jupiter - Explore the Universe of Games</title>
     <link rel="stylesheet" href="css/homestyle.css">
-    <link rel="icon" href="https://i.postimg.cc/MpT3kX3V/jupiter.png" type="image/png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -22,21 +21,20 @@
     <!-- Header with Blur Effect -->
     <header class="blur-header">
         <div class="logo">
-            <a href="index.html"><img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo"></a>
+            <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
         </div>
         <nav>
             <ul>
                 <li class="dropdown">
                     <a href="#" id="dropdown-toggle"><img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon"></a>
                     <div class="dropdown-content" id="dropdown-content">
-                        <a href="games.html">Games</a>
-                        <a href="apps.html">Apps</a>
-                        <a href="proxy.html">Proxy</a>
+                        <a href="#">Games</a>
+                        <a href="#">Apps</a>
                     </div>
                 </li>
                 <li class="search-bar">
-                    <input type="text" id="search-query" placeholder="Search...">
-                    <button onclick="performSearch()"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
+                    <input type="text" placeholder="Search...">
+                    <button><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
                 </li>
             </ul>
         </nav>
@@ -52,16 +50,16 @@
                     <hr class="changelog-line">
                     <ul>
                         <li>
-                            <strong>August 12, 2024</strong> - <em>Version 1.2.0</em>
-                            <p>Added new features to enhance user experience and fixed bugs related to navigation and performance.</p>
+                            <strong>August 19, 2024</strong> - <em>Version 1.0.0</em>
+                            <p>Initial release with 21 games for now. Not many apps yet, proxy is working though. Suggest games and apps you want (adding tmrw)</p>
                         </li>
                         <li>
-                            <strong>July 25, 2024</strong> - <em>Version 1.1.0</em>
-                            <p>Updated UI for better accessibility and improved loading times.</p>
+                            <strong>NOT August 20</strong> - <em>Version I.D.K</em>
+                            <p>this a placeholder fr</p>
                         </li>
                         <li>
-                            <strong>June 15, 2024</strong> - <em>Version 1.0.0</em>
-                            <p>Initial release with core functionalities and basic UI.</p>
+                            <strong>FWAEH, Carti release year</strong> - <em>Version W.L.R</em>
+                            <p>Carti told me he was gonna release when Jupiter does 🔥🧛🗣️</p>
                         </li>
                     </ul>
                 </div>
@@ -75,14 +73,6 @@
                     <a href="apps.html" class="button">Go to Apps</a>
                 </div>
             </div>
-
-            <div class="button-container">
-                <div class="blurred-frame button-frame">
-                    <a href="proxy.html" class="button">Go to Proxy</a>
-                </div>
-            </div>
-
-            <div id="search-results" class="search-results"></div>
         </section>
     </main>
 
@@ -91,9 +81,7 @@
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Toggle and Search Functionality -->
-    <script src="js/search.js"></script>
-    <script src="js/cloakcheck.js"></script> <!-- Add this line to include the cloakcheck.js file -->
+    <!-- JavaScript for Dropdown Toggle -->
     <script>
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
             event.preventDefault();
