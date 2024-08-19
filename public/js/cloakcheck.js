@@ -1,17 +1,21 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Function to get a cookie by name
-  function getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) return parts.pop().split(";").shift();
-  }
-
-  // Check if the site was opened from the launcher
-  if (getCookie('openedFromLauncher') === 'true') {
-    console.log('Site was opened from the launcher.');
-    // You can remove the cookie if you only want to check once
-    document.cookie = 'openedFromLauncher=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+window.addEventListener('load', function() {
+  // Check if the URL has the 'launchedFromLauncher' parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const launchedFromLauncher = urlParams.get('launchedFromLauncher');
+  
+  // Set or check local storage based on the URL parameter
+  if (launchedFromLauncher === 'true') {
+    localStorage.setItem('openedFromLauncher', 'true');
   } else {
-    console.error('The site was not opened from the launcher. Missing launcher cookie.');
+    localStorage.setItem('openedFromLauncher', 'false');
+  }
+  
+  // Check local storage value
+  const openedFromLauncher = localStorage.getItem('openedFromLauncher');
+  
+  if (openedFromLauncher === 'true') {
+    console.log('The site was opened from the launcher.');
+  } else {
+    console.log('The site was not opened from the launcher. Missing launcher parameter.');
   }
 });
