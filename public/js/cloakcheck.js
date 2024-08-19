@@ -6,6 +6,7 @@ window.addEventListener('load', function() {
     // Set or check local storage based on the URL parameter
     if (launchedFromLauncher === 'true') {
         localStorage.setItem('openedFromLauncher', 'true');
+        localStorage.setItem('warningAcknowledged', 'false'); // Reset warning acknowledgment
     } else {
         localStorage.setItem('openedFromLauncher', 'false');
     }
