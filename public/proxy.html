@@ -84,6 +84,9 @@
             const dropdownContent = document.getElementById('dropdown-content');
             dropdownContent.classList.toggle('show');
         });
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
 
         function openChatGPT() {
             var url = "https://javasquript.photographs.gs/";
