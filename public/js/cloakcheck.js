@@ -4,20 +4,27 @@ window.addEventListener('load', function() {
         localStorage.setItem('launcherFlag', 'false');
     }
 
-    // Function to verify if the URL parameter is correct
-    function isValidLauncherParam() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const launchedFromLauncher = urlParams.get('launchedFromLauncher');
-        return launchedFromLauncher === 'true';
-    }
-
     // Check if the URL has the 'launchedFromLauncher' parameter
-    if (isValidLauncherParam()) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const launchedFromLauncher = urlParams.get('launchedFromLauncher');
+
+    // Set or check local storage based on the URL parameter
+    if (launchedFromLauncher === 'true') {
         localStorage.setItem('launcherFlag', 'true');
         // Reset the launcher flag to false after 1 minute
         setTimeout(resetLauncherFlag, 60000); // 60000 ms = 1 minute
+    }
+
+    // Check local storage value
+    const launcherFlag = localStorage.getItem('launcherFlag');
+
+    if (launcherFlag === 'true') {
+        console.log('The site was opened from the launcher.');
     } else {
-        // If not valid, redirect to the warning page
-        window.location.href = 'warning.html';
+        console.log('The site was not opened from the launcher. Redirecting to warning page.');
+        // Redirect to warning page
+        if (window.location.pathname !== '/warning.html') {
+            window.location.href = '/warning.html';
+        }
     }
 });
