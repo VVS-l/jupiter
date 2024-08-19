@@ -1,21 +1,23 @@
 window.addEventListener('load', function() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const launchedFromLauncher = urlParams.get('launchedFromLauncher');
-  
-  if (launchedFromLauncher === 'true') {
-    sessionStorage.setItem('openedFromLauncher', 'true');
-  } else {
-    sessionStorage.setItem('openedFromLauncher', 'false');
-  }
-  
-  const openedFromLauncher = sessionStorage.getItem('openedFromLauncher');
-  
-  if (openedFromLauncher === 'true') {
-    console.log('The site was opened from the launcher.');
-  } else {
-    console.log('The site was not opened from the launcher. Missing launcher parameter.');
+    // Check if the URL has the 'launchedFromLauncher' parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const launchedFromLauncher = urlParams.get('launchedFromLauncher');
     
-    // Redirect to warning page
-    window.location.href = 'warning.html';
-  }
+    // Set or check local storage based on the URL parameter
+    if (launchedFromLauncher === 'true') {
+        localStorage.setItem('openedFromLauncher', 'true');
+    } else {
+        localStorage.setItem('openedFromLauncher', 'false');
+    }
+    
+    // Check local storage value
+    const openedFromLauncher = localStorage.getItem('openedFromLauncher');
+    
+    if (openedFromLauncher === 'true') {
+        console.log('The site was opened from the launcher.');
+    } else {
+        console.log('The site was not opened from the launcher. Redirecting to warning page.');
+        // Redirect to warning page
+        window.location.href = 'warning.html';
+    }
 });
