@@ -1,7 +1,7 @@
 window.addEventListener('load', function() {
     // Function to reset the launcher flag
     function resetLauncherFlag() {
-        localStorage.setItem('launcherFlag', 'false');
+        localStorage.removeItem('launcherFlag'); // Clear the launcher flag
     }
 
     // Check if the URL has the 'launchedFromLauncher' parameter
@@ -18,13 +18,14 @@ window.addEventListener('load', function() {
     // Check local storage value
     const launcherFlag = localStorage.getItem('launcherFlag');
 
-    if (launcherFlag === 'true') {
+    if (launcherFlag === 'true' && launchedFromLauncher === 'true') {
         console.log('The site was opened from the launcher.');
     } else {
         console.log('The site was not opened from the launcher. Redirecting to warning page.');
         // Redirect to warning page
-        if (window.location.pathname !== '/warning.html') {
-            window.location.href = '/warning.html';
-        }
+        window.location.href = 'warning.html';
     }
+
+    // Reset the launcher flag when the tab is closed
+    window.addEventListener('unload', resetLauncherFlag);
 });
