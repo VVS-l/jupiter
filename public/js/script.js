@@ -30,7 +30,13 @@ function openGameInCloakedTab(url) {
                 </style>
             </head>
             <body>
-                <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+                <iframe 
+                    id="cloakedFrame" 
+                    src="${url}" 
+                    sandbox="allow-same-origin allow-scripts allow-pointer-lock" 
+                    allowfullscreen 
+                    allow="pointer-lock">
+                </iframe>
             </body>
             </html>
         `);
