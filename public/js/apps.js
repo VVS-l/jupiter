@@ -2,7 +2,7 @@
 function openAppInCloakedTab(url) {
     // Create a new cloaked tab
     const win = window.open('about:blank', '_blank');
-
+    
     // Ensure win is available before accessing its document
     if (win) {
         win.document.open();
