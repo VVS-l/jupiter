@@ -17,6 +17,50 @@
     <link rel="icon" href="https://i.postimg.cc/MpT3kX3V/jupiter.png" type="image/png">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for the sidebar */
+        .sidebar {
+            position: fixed;
+            top: 100px; /* Adjust based on your header height */
+            right: 20px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite; /* Apply pulse animation */
+        }
+        .sidebar h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .sidebar p {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        .sidebar hr {
+            margin: 10px 0;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+        
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header with Blur Effect -->
@@ -52,16 +96,12 @@
                     <hr class="changelog-line">
                     <ul>
                         <li>
+                            <strong>August 29, 2024</strong> - <em>Version 1.0.0</em>
+                            <p>Fixed the issue where you couldn't look around in certain games. Will be adding some games today.</p>
+                        </li>
+                        <li>
                             <strong>August 19, 2024</strong> - <em>Version 1.0.0</em>
                             <p>Initial release with 21 games for now. Not many apps yet, proxy is working though. Suggest games and apps you want (adding tmrw)</p>
-                        </li>
-                        <li>
-                            <strong>READ THIS IF YOU TRYNA UNBLOCK SITES</strong> - <em>Version I.D.K</em>
-                            <p>Go to proxy, click open and click a box of your choice, for ex "money" and it'll do its magic. If the proxy breaks the site, just research it at the top, or reopen the proxy. I will be updating the proxy and stuff but for now this is only the beta release of Jupiter V2.</p>
-                        </li>
-                        <li>
-                            <strong>FWAEH, Carti release year</strong> - <em>Version W.L.R</em>
-                            <p>Carti said, "NO APPZ YET, FWEAHH. SORRY MANE. COMING SOON 2027 NEW MUSIC. 🔥🧛🗣️</p>
                         </li>
                     </ul>
                 </div>
@@ -85,6 +125,15 @@
             <div id="search-results" class="search-results"></div>
         </section>
     </main>
+
+    <!-- Sidebar for Proxy Information -->
+    <aside class="sidebar">
+        <h3>🔗 Proxy Information</h3>
+        <hr class="proxy-info-line">
+        <p>
+            Need to unblock sites? Click the <strong>Proxy</strong> button below to get started. Once there, click "Open" and select a box, such as "money," to begin. If the proxy breaks the site, try searching again or try the other proxy. This is the beta release of Jupiter V2, and updates will be made regularly!
+        </p>
+    </aside>
 
     <!-- Footer -->
     <footer>
