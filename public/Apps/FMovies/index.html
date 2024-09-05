@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,7 +6,7 @@
     <title>Smash Karts</title>
     <link rel="stylesheet" href="../../css/linkstyle.css">
 </head>
-<body>
+<body data-background-url="https://i.postimg.cc/gJ0n6PMB/app.png">
     <div class="popup" id="popup">
         <div class="popup-header">FMovies</div>
         <div class="popup-description">Click the button to copy the link:</div>
@@ -18,13 +19,7 @@
         <textarea id="linkToCopy" style="position: absolute; left: -9999px;">https://ww4.fmovies.co/24/</textarea>
     </div>
 
-    <script>
-        function copyLink() {
-            const link = document.getElementById('linkToCopy');
-            link.select();
-            document.execCommand('copy');
-            alert('Link copied to clipboard!');
-        }
-    </script>
+    <!-- Include the external JavaScript file -->
+    <script src="../../js/appbg.js" defer></script>
 </body>
 </html>

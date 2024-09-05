@@ -8,16 +8,16 @@
 
 /* Body and Background Animation */
 body {
-    margin: 0;
-    padding: 0;
+    background: linear-gradient(135deg, #001f3f, #001f3f 50%, #000 100%); /* Spacey gradient */
+    color: #fff;
+    font-size: 14px;
+    overflow-x: hidden;
     position: relative;
     min-height: 100vh; /* Ensure body takes full viewport height */
-    overflow: hidden; /* Hide overflow to keep background animation contained */
+    display: flex;
+    flex-direction: column;
     user-select: none; /* Disable text selection */
     -webkit-user-select: none; /* Disable text selection for WebKit browsers */
-    
-    /* Background Image Scrolling Effect */
-    background-image: url('https://i.postimg.cc/gJ0n6PMB/app.png');
     background-size: 150px 150px; /* Square background images */
     background-repeat: repeat; /* Tile the background */
     background-position: top left;
@@ -32,11 +32,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://i.postimg.cc/gJ0n6PMB/app.png');
-    background-size: 150px 150px; /* Square background images */
-    background-repeat: repeat; /* Tile the background */
-    background-position: top left;
-    animation: scrollBackground 30s linear infinite; /* Animate background scroll */
+    background: inherit; /* Inherit background from body */
     filter: brightness(0.2); /* Dim the background image */
     z-index: -1; /* Place behind all content */
 }
@@ -57,10 +53,10 @@ body::before {
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px); /* Apply blur effect */
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Darker shadow for better contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 500px;
     z-index: 1001; /* Ensure the pop-up is on top */
@@ -68,7 +64,6 @@ body::before {
     grid-template-rows: auto 1fr auto; /* Define grid layout */
     gap: 20px; /* Space between elements */
     overflow: hidden; /* Ensure no content overflows */
-    color: #fff; /* Set text color to white */
 }
 
 /* Pop-up Header */
@@ -79,6 +74,7 @@ body::before {
     margin-bottom: 15px;
     position: relative; /* Ensure it stays in the proper place */
     z-index: 1010; /* Ensure header is on top */
+    color: #fff; /* Ensure text is white */
 }
 
 /* Pop-up Description */
@@ -86,6 +82,7 @@ body::before {
     text-align: center;
     z-index: 1000; /* Ensure description is below the header */
     margin: 0; /* Reset margin */
+    color: #fff; /* Ensure text is white */
 }
 
 /* Pop-up Buttons */
@@ -97,11 +94,11 @@ body::before {
 
 .popup-buttons .button {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 10px 20px;
     text-align: center;
-    color: #fff; /* Text color for buttons */
+    color: #fff;
     text-decoration: none;
     font-size: 16px;
     border: 2px solid #ff6600;
