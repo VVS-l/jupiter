@@ -1,4 +1,3 @@
-// Function to open the app in a cloaked tab
 function openAppInCloakedTab(url) {
     // Create a new cloaked tab
     const win = window.open('about:blank', '_blank');
@@ -30,7 +29,7 @@ function openAppInCloakedTab(url) {
                 </style>
             </head>
             <body>
-                <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts" allowfullscreen></iframe>
+                <iframe id="cloakedFrame" src="${url}" sandbox="allow-same-origin allow-scripts allow-modals" allowfullscreen></iframe>
             </body>
             </html>
         `);
