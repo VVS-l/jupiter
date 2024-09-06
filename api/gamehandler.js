@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 
 export default function handler(req, res) {
-    // Adjust the path to point to the games directory at the root level
-    const gamesDir = path.resolve('..', 'games'); // Go one level up to reach the root, then into 'games'
+    // Adjust the path to point to the games directory within the public folder
+    const gamesDir = path.resolve('public', 'games'); // Access the public/games directory
 
     fs.readdir(gamesDir, { withFileTypes: true }, (err, files) => {
         if (err) {

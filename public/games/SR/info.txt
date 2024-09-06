@@ -1,0 +1,3 @@
+Name: Soccer Random
+Genre: Other
+URL: /games/SR/index.html

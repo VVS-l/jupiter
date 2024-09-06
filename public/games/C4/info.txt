@@ -1,0 +1,3 @@
+Name: Connect 4
+Genre: Strategy
+URL: /games/C4/index.html

@@ -1,0 +1,3 @@
+Name: Cookie Clicker
+Genre: Other
+URL: /games/CC/index.html

@@ -1,0 +1,3 @@
+Name: Happy Wheels
+Genre: Adventure
+URL: /games/Happy/index.html
