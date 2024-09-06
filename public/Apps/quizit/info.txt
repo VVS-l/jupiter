@@ -1,0 +1,3 @@
+Name: Answer Hacks
+Genre: Entertainment
+URL: /Apps/quizit/index.html

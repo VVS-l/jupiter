@@ -11,7 +11,7 @@ function openAppInCloakedTab(url) {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>App</title>
+                <title>COPY LINK</title>
                 <style>
                     html, body {
                         margin: 0;
@@ -62,7 +62,7 @@ async function fetchAppData(folderPath) {
 
 // Function to load apps
 async function loadApps() {
-    const appFolders = ['/Apps/yewt', '/Apps/FMovies', '/Apps/Netflix', '/Apps/GFN', '/Apps/Discord', '/Apps/blol', '/Apps/Snapchat', '/Apps/TikTok', '/Apps/Instagram', '/Apps/x', '/Apps/Reddit', '/Apps/Tubi']; // Replace with actual app folder paths
+    const appFolders = ['/Apps/yewt', '/Apps/FMovies', '/Apps/Netflix', '/Apps/GFN', '/Apps/Discord', '/Apps/blol', '/Apps/Snapchat', '/Apps/TikTok', '/Apps/Instagram', '/Apps/x', '/Apps/Reddit', '/Apps/Tubi', '/Apps/quizit']; // Replace with actual app folder paths
 
     for (const folderPath of appFolders) {
         const appInfo = await fetchAppData(folderPath);

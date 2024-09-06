@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COPY LINK</title>
+    <link rel="stylesheet" href="../../css/linkstyle.css">
+</head>
+<body data-background-url="app.png">
+    <div class="popup" id="popup">
+        <div class="popup-header">Quizit Answer Hacks</div>
+        <div class="popup-description">Click the button to copy the link:</div>
+        <div class="popup-buttons">
+            <button class="button" id="copyLinkButton">Copy Link</button>
+        </div>
+        <div class="popup-description">
+            Once you copy the link, go to your proxy of choice and paste the link into the proxy, not your actual web browser.
+        </div>
+        <textarea id="linkToCopy" style="position: absolute; left: -9999px;">https://quizit.online/services/</textarea>
+    </div>
+
+    <!-- Notification element -->
+    <div id="customNotification" class="notification" style="display: none;">Link copied to clipboard!</div>
+
+    <!-- Include the external JavaScript file -->
+    <script src="../../js/appbg.js" defer></script>
+    <!-- External script for functionality -->
+    <script src="../../js/copyLink.js" defer></script>
+</body>
+</html>

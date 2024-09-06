@@ -1,0 +1,3 @@
+Name: Slope
+Genre: Strategy
+URL: /games/Slope/index.html
