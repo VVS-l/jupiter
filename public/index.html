@@ -35,6 +35,24 @@
             border: none;
             border-top: 1px solid #ccc;
         }
+        .sidebar .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .sidebar .button-container a {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+        }
+        .sidebar .button-container a:hover {
+            background-color: #0056b3;
+        }
         
         /* Pulse animation */
         @keyframes pulse {
@@ -92,7 +110,7 @@
                         </li>
                         <li>
                             <strong>August 19, 2024 0:00 AM</strong> - <em>Version 1.0.0</em>
-                            <p>Initial release with 21 games for now. Not many apps yet, proxy is working though. Suggest games and apps you want (adding tmrw)</p>
+                            <p>Initial release with 21 games for now. Not many apps yet, proxy is working though. btw search bar is fake asf 😂 (I am not coding that shi)</p>
                         </li>
                     </ul>
                 </div>
@@ -124,6 +142,11 @@
         <p>
             Need to unblock sites? Click the <strong>Proxy</strong> button below to get started. Once there, click "Open" and select a box, such as "money," to begin. If the proxy breaks the site, try searching again or try the other proxy. This is the beta release of Jupiter V2, and updates will be made regularly!
         </p>
+        <!-- Buttons for Suggestions and Issues -->
+        <div class="button-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeufdJjicICMqS4zy4JX4d-UIoUTdjl-vsC2y2eb6L6KuLyNw/viewform" target="_blank">Any Suggestions?</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKy-YstHvXOqCakld55_PzHXU0tqPVimXVBbdwCVHVE3ccqw/viewform" target="_blank">Any Issues?</a>
+        </div>
     </aside>
 
     <!-- Footer -->
@@ -132,7 +155,7 @@
     </footer>
 
     <!-- JavaScript for Dropdown Toggle -->
-    <script src="js/cloakcheck.js"></script> <!-- Add this line to include the cloakcheck.js file -->
+    <script src="js/cloakcheck.js"></script>
     <script>
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
             event.preventDefault();

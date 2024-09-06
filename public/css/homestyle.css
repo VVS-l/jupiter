@@ -296,3 +296,26 @@ footer {
     background: rgba(0, 0, 0, 0.5); /* Match header */
     color: #fff;
 }
+
+/* Ensure buttons are the same width and aligned properly */
+.sidebar .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons */
+}
+
+.sidebar .button-container a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #FFA500; /* Orange color */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    flex: 1; /* Make all buttons the same width */
+}
+
+.sidebar .button-container a:hover {
+    background-color: #FF8C00; /* Darker orange on hover */
+}

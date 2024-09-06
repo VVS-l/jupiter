@@ -35,6 +35,24 @@
             border: none;
             border-top: 1px solid #ccc;
         }
+        .sidebar .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .sidebar .button-container a {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+        }
+        .sidebar .button-container a:hover {
+            background-color: #0056b3;
+        }
         
         /* Pulse animation */
         @keyframes pulse {
@@ -68,10 +86,6 @@
                         <a href="apps.html">Apps</a>
                         <a href="proxy.html">Proxy</a>
                     </div>
-                </li>
-                <li class="search-bar">
-                    <input type="text" id="search-query" placeholder="Search...">
-                    <button onclick="performSearch()"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
                 </li>
             </ul>
         </nav>
@@ -128,6 +142,11 @@
         <p>
             Need to unblock sites? Click the <strong>Proxy</strong> button below to get started. Once there, click "Open" and select a box, such as "money," to begin. If the proxy breaks the site, try searching again or try the other proxy. This is the beta release of Jupiter V2, and updates will be made regularly!
         </p>
+        <!-- Buttons for Suggestions and Issues -->
+        <div class="button-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeufdJjicICMqS4zy4JX4d-UIoUTdjl-vsC2y2eb6L6KuLyNw/viewform" target="_blank">Any Suggestions?</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKy-YstHvXOqCakld55_PzHXU0tqPVimXVBbdwCVHVE3ccqw/viewform" target="_blank">Any Issues?</a>
+        </div>
     </aside>
 
     <!-- Footer -->
@@ -135,9 +154,8 @@
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Toggle and Search Functionality -->
-    <script src="js/search.js"></script>
-    <script src="js/cloakcheck.js"></script> <!-- Add this line to include the cloakcheck.js file -->
+    <!-- JavaScript for Dropdown Toggle -->
+    <script src="js/cloakcheck.js"></script>
     <script>
         document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
             event.preventDefault();
