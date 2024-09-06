@@ -1,3 +1,0 @@
-Name: The Useless Web
-Genre: Entertainment
-URL: /Apps/UselessWeb/index.html

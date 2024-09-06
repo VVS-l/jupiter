@@ -1,0 +1,3 @@
+Name: Discord
+Genre: Entertainment
+URL: /Apps/Discord/index.html

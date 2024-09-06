@@ -1,0 +1,3 @@
+Name: Reddit
+Genre: Entertainment
+URL: /Apps/Reddit/index.html

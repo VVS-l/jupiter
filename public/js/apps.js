@@ -62,7 +62,7 @@ async function fetchAppData(folderPath) {
 
 // Function to load apps
 async function loadApps() {
-    const appFolders = ['/Apps/UselessWeb', '/Apps/FMovies']; // Replace with actual app folder paths
+    const appFolders = ['/Apps/yewt', '/Apps/FMovies', '/Apps/Netflix', '/Apps/GFN', '/Apps/Discord', '/Apps/blol', '/Apps/Snapchat', '/Apps/TikTok', '/Apps/Instagram', '/Apps/x', '/Apps/Reddit', '/Apps/Tubi']; // Replace with actual app folder paths
 
     for (const folderPath of appFolders) {
         const appInfo = await fetchAppData(folderPath);

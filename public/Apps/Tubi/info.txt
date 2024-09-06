@@ -1,0 +1,3 @@
+Name: Tubi TV
+Genre: Entertainment
+URL: /Apps/Tubi/index.html

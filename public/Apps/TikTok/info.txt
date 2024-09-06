@@ -1,0 +1,3 @@
+Name: TikTok
+Genre: Entertainment
+URL: /Apps/TikTok/index.html

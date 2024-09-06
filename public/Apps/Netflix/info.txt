@@ -1,0 +1,3 @@
+Name: Netflix
+Genre: Entertainment
+URL: /Apps/Netflix/index.html

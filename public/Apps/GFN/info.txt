@@ -1,0 +1,3 @@
+Name: Geforce NOW
+Genre: Entertainment
+URL: /Apps/GFN/index.html

@@ -1,0 +1,3 @@
+Name: Xbox Cloud Gaming
+Genre: Entertainment
+URL: /Apps/XCG/index.html

@@ -1,0 +1,3 @@
+Name: Snapchat (might work)
+Genre: Entertainment
+URL: /Apps/Snapchat/index.html

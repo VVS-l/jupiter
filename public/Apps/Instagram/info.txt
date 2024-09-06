@@ -1,0 +1,3 @@
+Name: Instagram
+Genre: Entertainment
+URL: /Apps/Instagram/index.html
