@@ -1,0 +1,3 @@
+Name: TVApp (free live TV)
+Genre: Entertainment
+URL: /Apps/TVApp/index.html
