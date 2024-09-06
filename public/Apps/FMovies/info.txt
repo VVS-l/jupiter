@@ -1,3 +1,3 @@
 Name: PressPlay
-Genre: Popular
+Genre: Entertainment
 URL: /Apps/FMovies/index.html
