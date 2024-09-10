@@ -8,13 +8,13 @@
   gtag('config', 'G-HCTT52WRSB');
 </script>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proxy - Jupiter</title>
     <link rel="stylesheet" href="css/proxystyle.css">
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -59,24 +59,22 @@
                     <p>To use the proxy:</p>
                     <ol>
                         <li>Click the "Open Proxy" button below OR the "Better Proxy" button.</li>
-                        <li>You'll be redirected to the proxy service where you can browse securely. 
-                     </li>
-                      <hr class="proxy-line">
-                     <h3>Extra information for those who don't know</h3>
-                      <p>I did NOT make these proxies, any issues with them are not my problem. I will change them out if they are outdated, way too slow, too many complaints, or if its trash.<p>
-                      <p>If you are logging into something expect slowness, or issues. It is a proxy, not a unblocked browser. This is a server hosted for FREE for anyone, meaning other people will use this aswell.<p>
+                        <li>You'll be redirected to the proxy service where you can browse securely.</li>
                     </ol>
+                    <hr class="proxy-line">
+                    <h3>Extra information for those who don't know</h3>
+                    <p>I did NOT make these proxies, any issues with them are not my problem. I will change them out if they are outdated, way too slow, too many complaints, or if its trash.</p>
+                    <p>If you are logging into something expect slowness, or issues. It is a proxy, not an unblocked browser. This is a server hosted for FREE for anyone, meaning other people will use this as well.</p>
                 </div>
             </div>
 
             <div class="button-container">
                 <div class="blurred-frame button-frame">
-                    <button class="button" onclick="openChatGPT()">Open Proxy</button>
+                    <button class="button" onclick="showPopup('openProxy')">Open Proxy</button>
                 </div>
                 <div class="blurred-frame button-frame">
-                    <button class="button" onclick="window.open('https://leedsu.uk/','_blank')">Better Proxy</button>
-</div>
-
+                    <button class="button" onclick="showPopup('betterProxy')">Better Proxy</button>
+                </div>
             </div>
         </section>
     </main>
@@ -86,46 +84,18 @@
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Toggle -->
-    <script>
-        document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
-            event.preventDefault();
-            const dropdownContent = document.getElementById('dropdown-content');
-            dropdownContent.classList.toggle('show');
-        });
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-        });
+    <!-- Popup -->
+    <div class="popup-overlay">
+        <div class="popup-frame">
+            <button class="close-button" onclick="closePopup()">×</button>
+            <p id="proxy-info"></p>
+            <div id="proxy-link"></div>
+            <div id="countdown"></div>
+            <button id="help-button" disabled>Help</button>
+        </div>
+    </div>
 
-        function openChatGPT() {
-            var url = "https://javasquript.photographs.gs/";
-            var win;
-
-            if (url) {
-                if (win) {
-                    win.focus();
-                } else {
-                    win = window.open();
-                    win.document.title = "Inbox"; // Set the tab name to "Inbox"
-                    
-                    // Change the favicon
-                    var favicon = win.document.createElement('link');
-                    favicon.rel = 'icon';
-                    favicon.href = 'https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000'; // Favicon URL
-                    win.document.head.appendChild(favicon);
-
-                    win.document.body.style.margin = '0';
-                    win.document.body.style.height = '100vh';
-                    var iframe = win.document.createElement('iframe');
-                    iframe.style.border = 'none';
-                    iframe.style.width = '100%';
-                    iframe.style.height = '100%';
-                    iframe.style.margin = '0';
-                    iframe.src = url;
-                    win.document.body.appendChild(iframe);
-                }
-            }
-        }
-    </script>
+    <!-- JavaScript -->
+    <script src="js/proxy.js"></script>
 </body>
 </html>
