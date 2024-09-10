@@ -13,13 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.popup-overlay').style.display = 'flex';
         const proxyInfo = document.getElementById('proxy-info');
         const proxyLink = document.getElementById('proxy-link');
-        const countdownDisplay = document.getElementById('countdown');
 
         if (proxyType === 'openProxy') {
-            proxyInfo.innerHTML = "Proxy is opening soon, read if you have any issues. Some links will work, some won't. The proxies use networking from all over the world. If you are having any issues, click the help button, or <a href='https://docs.google.com/forms/d/e/1FAIpQLSdKy-YstHvXOqCakld55_PzHXU0tqPVimXVBbdwCVHVE3ccqw/viewform' target='_blank' style='color: #ff6600;'>File an issue</a>";
+            proxyInfo.innerHTML = "<h2>Proxy is opening soon, read if you have any issues.</h2><p>Some links will work, some won't. The proxies use networking from all over the world. If you are having any issues, click the help button, or </p>";
+            proxyLink.innerHTML = '<a href="https://docs.google.com/forms/d/e/1FAIpQLSdKy-YstHvXOqCakld55_PzHXU0tqPVimXVBbdwCVHVE3ccqw/viewform" target="_blank" style="color: #ff6600;">File an issue</a>';
             startCountdown('openProxy');
         } else if (proxyType === 'betterProxy') {
-            proxyInfo.innerHTML = "Proxy is opening soon, read if you have any issues. Some links will work, some won't. The proxies use networking from all over the world. If you are having any issues, click the help button, or <a href='https://docs.google.com/forms/d/e/1FAIpQLSdKy-YstHvXOqCakld55_PzHXU0tqPVimXVBbdwCVHVE3ccqw/viewform' target='_blank' style='color: #ff6600;'>File an issue</a>";
+            proxyInfo.innerHTML = "<h2>Proxy is opening soon, read if you have any issues.</h2><p>Some links will work, some won't. The proxies use networking from all over the world. If you are having any issues, click the help button, or </p>";
+            proxyLink.innerHTML = '<a href="https://docs.google.com/forms/d/e/1FAIpQLSdKy-YstHvXOqCakld55_PzHXU0tqPVimXVBbdwCVHVE3ccqw/viewform" target="_blank" style="color: #ff6600;">File an issue</a>';
             startCountdown('betterProxy');
         }
     }
@@ -44,14 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('.popup-overlay').style.display = 'none';
             }
         }, 1000);
-        document.getElementById('skip-button').style.display = 'block';
-    }
-
-    function skipCountdown() {
-        document.querySelector('.popup-overlay').style.display = 'none';
-        if (typeof interval !== 'undefined') {
-            clearInterval(interval);
-        }
     }
 
     function closePopup() {
@@ -89,6 +82,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Expose functions to global scope
     window.showPopup = showPopup;
-    window.skipCountdown = skipCountdown;
     window.closePopup = closePopup;
 });
