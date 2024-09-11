@@ -360,7 +360,7 @@ footer {
 }
 
 /* Buttons */
-#skip-button, #help-button {
+#go-button, #help-button {
     margin: 10px;
     border: 2px solid orange; /* Orange border */
     padding: 10px 20px;
@@ -372,7 +372,7 @@ footer {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#skip-button:hover, #help-button:hover {
+#go-button:hover, #help-button:hover {
     background-color: orange; /* Orange background on hover */
     color: #fff; /* White text on hover */
 }
